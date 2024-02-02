@@ -1,0 +1,188 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Roboto, sans-serif;
+}
+
+.thanhngang{
+    width: 100%;
+    margin-top: 100px;
+    border-top: 1px solid #0000002a;
+    line-height: 25.6px;
+    padding: 15px 0;
+}
+
+
+.product__details{
+    width: 100%;
+    display: flex;
+    margin-bottom: 100px;
+    padding: 0px 15px 30px;
+    position: relative;
+}
+
+/* hình ảnh */
+.product__details__image{
+    position: relative;
+    width: 50%;
+    left: 0;
+}
+
+.product__details__image i{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 20px 20px;
+}
+
+.product__details_img{
+    border-radius: 10px;
+    padding: 0 10px 0 10px;
+}
+.product__details_img img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* các content */
+.product__details__content{
+    width: 50%;
+    right: 0;
+    padding: 10px 15px 30px;
+}
+
+.product__details__bran{
+    padding: 0 15px 0 0;
+    font-size: 14px;
+    color: #288ad6;
+    text-align: left;
+}
+
+.product__details__name h1{
+    color: #000000;
+    font-weight: 400;
+    font-size: 18px;
+    grid-area: auto;
+    line-height: 23.4px;
+    margin: 0 0 9px;
+    padding: 10px 0;
+}
+
+.product__details__price{
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+    grid-area: auto;
+    line-height: 20px;
+    margin: 10px 0;
+}
+
+.product__details__panel{
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem;
+    font-size: 17px;
+    height: 40px;
+}
+
+.details__panel{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.details__action{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.details__panel__price {
+    background-image: linear-gradient(#06DECD, #744DEF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.details__action__icons {
+    display: inline;
+    background-color: #000000;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.details__action__icons i{
+    display: inline;
+    color: #fff;
+    font-size: 14px;
+}
+
+
+.details__discount {
+    display: flex;
+    margin-top: 5px;
+    padding: 3px 8px;
+    width: fit-content;
+    width: 370px;
+    max-width: 100%;
+    height: 60px;
+    background: linear-gradient(to right, #06DECD, #744DEF);
+    color: #fff;
+    font-family: 'League Spartan',sans-serif;
+    font-size: 17px;
+    border-radius: 10px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.details__discount__icon{
+    display: inline;
+    width: 39px;
+    height: auto;
+    padding: 8px 0;
+}
+
+.details__discount__icons{
+    width: 39px;
+    height: 39px;
+    padding: 5px 9px;
+    font-size: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.details__discount__icons i{
+    color: #06DECD;
+    font-weight: 500px;
+}
+
+.details__discount__content {
+    display: flex;
+    padding-left: 10px;
+    max-width: 370px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.details__discount__content span {
+    display: block; 
+}
+
+.details__discount__content span strong {
+    display: inline;
+    color: #dffdc3;
+}
+
+.details__discount__content span a {
+    display: inline; 
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 3px;
+    font-style: italic;
+}
+
+/* kich thước và cart */
