@@ -1,69 +1,26 @@
 <template>
-   <!-- sự kiện -->
+  <!-- sự kiện -->
 
-   <section class="section brand" aria-label="brand">
-        <div class="container">
-            <h4>Tin Tức - Sự Kiện</h4>
-            <p class="thanhp">Tin tức phổ biến</p>
-
-            <div class="new__list">
-                <div class="new__item">
-                    <div class="new__top">
-                        <div class="new__image">
-                            <img
-                                src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/01/Thiet-ke-chua-co-ten-4-6.png"
-                                alt />
-                        </div>
-                    </div>
-                    <h5 class="new__name">
-                        <p>
-                            <b>Tương lai của những đôi sneaker được
-                                tạo bởi AI sẽ đi về
-                                đâu?</b>
-                        </p>
-                    </h5>
-                </div>
-                <div class="new__item">
-                    <div class="new__top">
-                        <div class="new__image">
-                            <img
-                                src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/01/Thiet-ke-chua-co-ten-4-6.png"
-                                alt />
-                        </div>
-                    </div>
-                    <h5 class="new__name">
-                        <p>
-                            <b>Top giày chạy bộ màu trắng cho hiệu
-                                suất nguyên sơ</b>
-                        </p>
-                    </h5>
-                </div>
-                <div class="new__item">
-                    <div class="new__top">
-                        <div class="new__image">
-                            <img
-                                src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/01/Thiet-ke-chua-co-ten-4-6.png"
-                                alt />
-                        </div>
-                    </div>
-                    <h5 class="new__name">
-                        <p>
-                            <b>Top giày chạy bộ màu trắng cho hiệu
-                                suất nguyên sơ</b>
-                        </p>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="new__item">
+    <div class="new__top">
+      <div class="new__image">
+        <img :src="image" alt="Hình ảnh tin tức - sự kiện" />
+      </div>
+    </div>
+    <h5 class="new__name">
+      <p>
+        <b>{{ title }}</b>
+      </p>
+    </h5>
+  </div>
 </template>
 
-<script>
-    export default {
-        
-    }
+<script setup lang="ts">
+defineProps({
+  id: String,
+  title: String,
+  image: String,
+});
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -1,5 +1,4 @@
 :root {
-
   /**
    * colors
    */
@@ -24,9 +23,9 @@
    * typography
    */
 
-  --ff-bangers: 'Bangers', cursive;
-  --ff-carter_one: 'Carter One', cursive;
-  --ff-nunito_sans: 'Nunito Sans', sans-serif;
+  --ff-bangers: "Bangers", cursive;
+  --ff-carter_one: "Carter One", cursive;
+  --ff-nunito_sans: "Nunito Sans", sans-serif;
 
   --fs-1: 6.5rem;
   --fs-2: 3.2rem;
@@ -68,7 +67,6 @@
   --transition-2: 0.5s ease;
   --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
   --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
-
 }
 
 /*-----------------------------------*\
@@ -100,7 +98,6 @@ a {
   font-weight: normal;
   font-family: Roboto, sans-serif;
   text-decoration: none;
-
 }
 
 h4 {
@@ -133,7 +130,7 @@ html {
 body {
   background-color: var(--white);
   color: var(--black);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
 }
@@ -328,7 +325,6 @@ body {
 
 .imgxem {
   border-bottom: 1px solid rgb(223, 222, 222);
-
 }
 
 /*-----------------------------------*\
@@ -373,7 +369,7 @@ body {
   margin: 5px 5px;
   font-weight: 900;
 }
-.action-btn-cart{
+.action-btn-cart {
   position: absolute;
   display: flex;
   position: relative;
@@ -727,7 +723,6 @@ body {
 .card-action {
   position: relative;
   width: 100%;
-
 }
 
 .heart-icon {
@@ -779,6 +774,21 @@ body {
   text-align: center;
   font-size: 16px;
   color: #0a0a0a;
+}
+
+.image_res {
+  overflow: hidden;
+  max-height: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image_res img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* tin tuc su kien */
@@ -919,7 +929,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 25px;
   font-weight: 700;
   grid-area: auto;
@@ -1047,7 +1057,8 @@ body {
   #BACK TO TOP
 \*-----------------------------------*/
 
-.back-top-btn {position: fixed;
+.back-top-btn {
+  position: fixed;
   width: 50px;
   height: 50px;
   bottom: 30px;
@@ -1077,7 +1088,7 @@ body {
   display: none;
 }
 
-.menu--open{
+.menu--open {
   position: absolute;
   top: 25%;
   left: 0;
@@ -1145,7 +1156,7 @@ body {
 .activitithngang {
   display: block;
   border-right: 1px solid rgb(97, 97, 97);
-  margin: 5px 5px ;
+  margin: 5px 5px;
 }
 
 .sreach {
@@ -1180,9 +1191,7 @@ input[type="text"] {
   #MEDIA QUERIES
 \*-----------------------------------*/
 
-
 @media (max-width: 450px) {
-
   .but {
     border-radius: 100%;
     justify-content: center;
@@ -1302,23 +1311,18 @@ input[type="text"] {
   .product-card:is(:hover, :focus-within) .card-action-btn {
     opacity: 2;
   }
-
-
 }
 
 /* responsive for large than 375px screen */
 
 @media (min-width: 375px) {
-
   /* CUSTOM PROPERTY */
 
   :root {
-
     /* typography */
 
     --fs-2: 4rem;
     --fs-3: 2.6rem;
-
   }
 
   /* REUSED STYLE */
@@ -1362,12 +1366,9 @@ input[type="text"] {
   .footer-list {
     flex: 0 0 100%;
   }
-
 }
 
 @media (max-width: 768px) {
-
-
   .action-btn-search {
     display: none;
   }
@@ -1376,11 +1377,11 @@ input[type="text"] {
     display: none;
   }
 
-  .menu--open{
+  .menu--open {
     display: block;
   }
 
-  .action-btn-cart{
+  .action-btn-cart {
     position: absolute;
     top: 20%;
     right: 10px;
@@ -1393,15 +1394,12 @@ input[type="text"] {
 /* responsive for large than 768px screen */
 
 @media (min-width: 768px) {
-
   /* CUSTOM PROPERTY */
 
   :root {
-
     /* typography */
 
     --fs-1: 9rem;
-
   }
 
   /* REUSED STYLE */
@@ -1450,15 +1448,12 @@ input[type="text"] {
     justify-content: space-between;
     align-items: center;
   }
-
 }
 
 @media (min-width: 992px) {
-
   /* CUSTOM PROPERTY */
 
   :root {
-
     /* typography */
 
     --fs-1: 12rem;
@@ -1467,7 +1462,6 @@ input[type="text"] {
     /* spacing */
 
     --section-padding: 20px;
-
   }
 
   /* REUSED STYLE */
@@ -1482,7 +1476,7 @@ input[type="text"] {
   .navbar {
     display: none;
   }
-  
+
   /* HEADER */
 
   .nav-toggle-btn,
@@ -1577,22 +1571,18 @@ input[type="text"] {
   .footer-top .container {
     grid-template-columns: 1.5fr 0.75fr 0.75fr;
   }
-
 }
 
 /* responsive for large than 1200px screen */
 
 @media (min-width: 1200px) {
-
   /* CUSTOM PROPERTY */
 
   :root {
-
     /* typography */
 
     --fs-1: 15rem;
     --fs-3: 3.2rem;
-
   }
 
   /* REUSED STYLE */
@@ -1617,7 +1607,6 @@ input[type="text"] {
   .footer {
     padding-block-start: 40px;
   }
-
 }
 
 /* responsive */
@@ -1678,4 +1667,8 @@ input[type="text"] {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.route-link:hover {
+  color: #000;
 }
