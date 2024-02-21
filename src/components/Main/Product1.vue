@@ -13,7 +13,7 @@ defineProps({
 
   <li :key="id">
     <div class="product-card">
-      <RouterLink to="/details" class="route-link">
+      <RouterLink to="/product/details" class="route-link">
         <div class="card-banner">
           <div class="like-img">
             <img
@@ -25,7 +25,7 @@ defineProps({
 
           <div class="top-img">
             <img
-              on-click="/detail"
+              on-click="/product/details"
               :src="image2"
               alt="Giày Nike Air Force 1 07 White 315122-11"
             />
