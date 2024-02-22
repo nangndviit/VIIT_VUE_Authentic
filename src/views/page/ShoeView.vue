@@ -51,6 +51,12 @@
               :price="item.price"
             />
           </ul>
+
+          <nav class="woocommerce-pagination">
+            <NumberShoe />
+          </nav>
+
+          <DescriptionShoe />
         </div>
       </div>
     </div>
@@ -63,6 +69,8 @@ import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import ResultsDisplayed from "@/components/Shoe/Results_Displayed_Shoe.vue";
 import FilterByShoe from "@/components/Shoe/Filter_By_Shoe.vue";
+import NumberShoe from "@/components/Shoe/Number_Shoe.vue";
+import DescriptionShoe from "@/components/Shoe/Description_Shoe.vue";
 import Product from "@/components/Main/Product1.vue";
 import { ref } from "vue";
 
@@ -238,5 +246,23 @@ let dataFilter = ref([
   flex-basis: 75%;
   max-width: 75%;
   margin-top: 30px;
+}
+nav {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main_shoe {
+    width: 100%;
+  }
+  .large-3 {
+    display: none;
+  }
+  .large-9 {
+    display: block;
+    max-width: 100%;
+    left: 0;
+  }
 }
 </style>

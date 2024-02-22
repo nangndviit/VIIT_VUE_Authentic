@@ -65,4 +65,10 @@ defineProps({
   padding: 6px 0;
   opacity: 0.5;
 }
+
+@media (max-width: 768px) {
+  .li_fillter_by {
+    display: none;
+  }
+}
 </style>

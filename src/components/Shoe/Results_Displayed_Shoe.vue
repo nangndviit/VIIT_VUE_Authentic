@@ -65,4 +65,27 @@ defineProps({
   margin: 5px 0px;
   padding: 0px 12px 0px 12px;
 }
+
+@media (max-width: 768px) {
+  .results {
+    display: none;
+  }
+  .woocommerce-ordering {
+    width: 100%;
+  }
+  .orderby {
+    margin-left: 200px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .woocommerce-ordering {
+    width: 100%;
+  }
+  .orderby {
+    margin-left: 70px;
+    padding: 0 20px;
+  }
+}
 </style>

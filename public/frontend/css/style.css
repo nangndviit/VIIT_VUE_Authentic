@@ -1086,6 +1086,7 @@ body {
 
 .navbar2 {
   display: none;
+  width: 300px;
 }
 
 .menu--open {
