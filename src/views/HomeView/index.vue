@@ -141,6 +141,9 @@ import ProductAdidas from "@/components/Main/Product_Adidas.vue";
 import ButtonSeeAll from "@/components/Main/ButtonSeeAll.vue";
 import axios from "axios";
 
+// Import constant file
+import Constants from "@/ulitis/constants.js";
+
 export default {
   components: {
     Header,
@@ -157,6 +160,7 @@ export default {
   },
   data() {
     return {
+      nikeProducts: [],
       products: [],
       categories: [],
       brand: [],
@@ -165,13 +169,20 @@ export default {
   },
   created() {
     this.fetchData();
+    this.fetchNikeProducts();
+    // console.log(process.env.BASE_URL);
   },
   methods: {
     fetchData() {
       axios
         .all([
+          // axios.get(process.env.BASE_URL + "cate-show"),
+          // axios.get(process.env.BASE_URL + "products"),
+          // axios.get(process.env.BASE_URL + "brand"),
+          // axios.get(process.env.BASE_URL + "events"),
+
           axios.get("http://127.0.0.1:8000/api/products"),
-          axios.get("http://127.0.0.1:8000/api/cate"),
+          axios.get("http://127.0.0.1:8000/api/cate-show"),
           axios.get("http://127.0.0.1:8000/api/brand"),
           axios.get("http://127.0.0.1:8000/api/events"),
         ])
@@ -185,6 +196,16 @@ export default {
             }
           )
         )
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    fetchNikeProducts() {
+      axios
+        .get(Constants.NIKE_PRODUCTS_API_URL)
+        .then((response) => {
+          this.nikeProducts = response.data;
+        })
         .catch((error) => {
           console.error(error);
         });

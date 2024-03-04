@@ -12,7 +12,7 @@
           <i class="fa-regular fa-heart"></i>
         </div>
         <div class="card-content">
-          <p>Giày Sneaker</p>
+          <p>Giày Nike</p>
           <!-- Hiển thị Name_Category là Giày Nike -->
           <a href="#"> {{ product.Ten_SP }} </a>
           <bdi>{{ product.Gia_SP }} đ</bdi>

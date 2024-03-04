@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
+import HomeView from '@/views/HomeView/index.vue'
+import HomeView1 from '@/views/HomeView1.vue'
+import TestView from '@/views/TestView.vue'
 import DetailsView from '@/views/page/DetailsView.vue'
 import ShoeView from '@/views/page/ShoeView.vue'
 
@@ -20,6 +22,11 @@ const router = createRouter({
       path: '/product/tat-ca-giay',
       name: 'giay',
       component: ShoeView
+    },
+    {
+      path: '/show-test',
+      name: 'show-test',
+      component: TestView
     }
   ]
 })
