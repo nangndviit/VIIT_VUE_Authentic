@@ -1,22 +1,23 @@
 <template>
-  <!-- Thương hiệu -->
-
   <div class="bran__item">
     <div class="bran__top">
       <div class="bran__image">
-        <img :src="image" alt="" />
+        <img :src="brand.Anh_Brand" alt="" />
+        <!-- Thay đổi binding image -->
       </div>
     </div>
-    <h3 class="bran__name">{{ nameBrand }}</h3>
+    <h3 class="bran__name">{{ brand.Name_Brand }}</h3>
+    <!-- Thay đổi binding nameBrand -->
   </div>
 </template>
 
-<script setup lang="ts">
-defineProps({
-  id: String,
-  nameBrand: String,
-  image: String,
-});
+<script>
+export default {
+  props: {
+    brand: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
-
-<style lang="scss" scoped></style>

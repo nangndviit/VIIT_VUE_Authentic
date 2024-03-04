@@ -1,46 +1,39 @@
-<script setup lang="ts">
-defineProps({
-  id: String,
-  title: String,
-  nameProduct: String,
-  image1: String,
-  image2: String,
-  price: Number,
-});
-</script>
 <template>
-  <!-- Sản phẩm1-->
-
-  <li :key="id">
+  <li :key="product.ID_SP" v-if="isNikeCategory(product.ID_Category)">
     <div class="product-card">
-      <RouterLink to="/product/details" class="route-link">
+      <router-link :to="'/product/details/' + product.ID_SP" class="route-link">
         <div class="card-banner">
           <div class="like-img">
-            <img
-              on-click="/detail"
-              :src="image1"
-              alt="Giày Nike Air Force 1 07 White 315122-11"
-            />
+            <img :src="product.Anh_SP1" :alt="product.Ten_SP" />
           </div>
-
           <div class="top-img">
-            <img
-              on-click="/product/details"
-              :src="image2"
-              alt="Giày Nike Air Force 1 07 White 315122-11"
-            />
+            <img :src="product.Anh_SP2" :alt="product.Ten_SP" />
           </div>
           <i class="fa-regular fa-heart"></i>
         </div>
-
         <div class="card-content">
-          <p>{{ title }}</p>
-          <a href="#"> {{ nameProduct }} </a>
-          <bdi>{{ price }} đ</bdi>
+          <p>Giày Nike</p>
+          <!-- Hiển thị Name_Category là Giày Nike -->
+          <a href="#"> {{ product.Ten_SP }} </a>
+          <bdi>{{ product.Gia_SP }} đ</bdi>
         </div>
-      </RouterLink>
+      </router-link>
     </div>
   </li>
 </template>
 
-<style lang="scss" scoped></style>
+<script>
+export default {
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+  },
+  methods: {
+    isNikeCategory(categoryId) {
+      return categoryId === 1;
+    },
+  },
+};
+</script>
