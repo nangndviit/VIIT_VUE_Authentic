@@ -9,18 +9,13 @@
     <!-- Product Nike -->
     <section class="section brand" aria-label="brand">
       <div class="container">
-        <h4>Giày chính hãng Nike 2023</h4>
-        <p class="thanhp">
-          Mẫu giày Nike Jordan 1, Air Force 1, các sản phẩm bóng rổ,… mới nhất 2023 với
-          giá cực tốt
-        </p>
-
+        <h4>{{ categories[0]?.title }}</h4>
+        <p class="thanhp">{{ categories[0]?.description }}</p>
         <ul class="grid-list">
-          <Product1
-            v-for="product in products"
-            :key="product.ID_SP"
+          <Product
+            v-for="(product, index) in categories[0]?.products"
+            :key="'nike-shoes' + index"
             :product="product"
-            :categories="categories"
           />
         </ul>
         <ButtonSeeAll />
@@ -48,15 +43,13 @@
     <!-- Product Sneaker -->
     <section class="section brand" aria-label="brand">
       <div class="container">
-        <h4>Giày Sneaker nổi bật</h4>
-        <p class="thanhp">Mặt hàng giày các thương hiệu nổi bật</p>
-
+        <h4>{{ categories[1]?.title }}</h4>
+        <p class="thanhp">{{ categories[1]?.description }}</p>
         <ul class="grid-list">
-          <ProductSneaker
-            v-for="product in products"
-            :key="product.ID_SP"
+          <Product
+            v-for="(product, index) in categories[1]?.products"
+            :key="'nike-shoes' + index"
             :product="product"
-            :categories="categories"
           />
         </ul>
         <ButtonSeeAll />
@@ -72,15 +65,13 @@
     <!-- Product3 Adidas -->
     <section class="section brand" aria-label="brand">
       <div class="container">
-        <h4>Yeezy by Kanye West</h4>
-        <p class="thanhp">Yeezy 350 và dép Yeezy cho mùa hè 2023</p>
-
+        <h4>{{ categories[2]?.title }}</h4>
+        <p class="thanhp">{{ categories[2]?.description }}</p>
         <ul class="grid-list">
-          <ProductAdidas
-            v-for="product in products"
-            :key="product.ID_SP"
+          <Product
+            v-for="(product, index) in categories[2]?.products"
+            :key="'nike-shoes' + index"
             :product="product"
-            :categories="categories"
           />
         </ul>
         <ButtonSeeAll />
@@ -96,15 +87,13 @@
     <!-- phụ kiện -->
     <section class="section brand" aria-label="brand">
       <div class="container">
-        <h4>Phụ kiện</h4>
-        <p class="thanhp">Mặt hàng phụ kiện các thương hiệu nổi bật</p>
-
+        <h4>{{ categories[3]?.title }}</h4>
+        <p class="thanhp">{{ categories[3]?.description }}</p>
         <ul class="grid-list">
-          <Accessory
-            v-for="product in products"
-            :key="product.ID_SP"
+          <Product
+            v-for="(product, index) in categories[3]?.products"
+            :key="'nike-shoes' + index"
             :product="product"
-            :categories="categories"
           />
         </ul>
         <ButtonSeeAll />
@@ -134,25 +123,16 @@ import Category from "@/components/Main/Category.vue";
 import Slider from "@/components/Main/Slider.vue";
 import New from "@/components/Main/New.vue";
 import Brand from "@/components/Main/Brand.vue";
-import Product1 from "@/components/Main/Product1.vue";
-import Accessory from "@/components/Main/Accessory.vue";
-import ProductSneaker from "@/components/Main/Product_Sneaker.vue";
-import ProductAdidas from "@/components/Main/Product_Adidas.vue";
+import Product from "@/components/Main/Product.vue";
 import ButtonSeeAll from "@/components/Main/ButtonSeeAll.vue";
 import axios from "axios";
-
-// Import constant file
-import Constants from "@/ulitis/constants.js";
 
 export default {
   components: {
     Header,
     Slider,
     Category,
-    Product1,
-    Accessory,
-    ProductSneaker,
-    ProductAdidas,
+    Product,
     Brand,
     New,
     ButtonSeeAll,
@@ -169,43 +149,38 @@ export default {
   },
   created() {
     this.fetchData();
-    this.fetchNikeProducts();
-    // console.log(process.env.BASE_URL);
   },
   methods: {
-    fetchData() {
+    async fetchData() {
       axios
         .all([
-          // axios.get(process.env.BASE_URL + "cate-show"),
-          // axios.get(process.env.BASE_URL + "products"),
-          // axios.get(process.env.BASE_URL + "brand"),
-          // axios.get(process.env.BASE_URL + "events"),
+          // axios.get(process.env.BASE_URL + 'cate-show'),
+          // axios.get(process.env.BASE_URL + 'products'),
+          // axios.get(process.env.BASE_URL + 'brand'),
+          // axios.get(process.env.BASE_URL + 'events'),
 
-          axios.get("http://127.0.0.1:8000/api/products"),
-          axios.get("http://127.0.0.1:8000/api/cate-show"),
-          axios.get("http://127.0.0.1:8000/api/brand"),
-          axios.get("http://127.0.0.1:8000/api/events"),
+          await axios.get("http://127.0.0.1:8000/api/products"),
+          await axios.get("http://127.0.0.1:8000/api/cate/show1"),
+          await axios.get("http://127.0.0.1:8000/api/brand"),
+          await axios.get("http://127.0.0.1:8000/api/events"),
         ])
         .then(
           axios.spread(
-            (productsResponse, categoriesResponse, brandsResponse, newsResponse) => {
+            (
+              productsResponse,
+              categoriesResponse,
+              brandsResponse,
+              newsResponse
+            ) => {
               this.products = productsResponse.data;
-              this.categories = categoriesResponse.data;
+              this.categories = categoriesResponse.data.data;
+              // console.log(this.categories.data[1]);
+              // console.log(categoriesResponse.data.data);
               this.brands = brandsResponse.data;
               this.news = newsResponse.data;
             }
           )
         )
-        .catch((error) => {
-          console.error(error);
-        });
-    },
-    fetchNikeProducts() {
-      axios
-        .get(Constants.NIKE_PRODUCTS_API_URL)
-        .then((response) => {
-          this.nikeProducts = response.data;
-        })
         .catch((error) => {
           console.error(error);
         });

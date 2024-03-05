@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <main>
     <Header />
     <div class="container">
@@ -170,4 +170,4 @@ let dataProductFooter = ref([
     MaSP: "DC0774-105",
   },
 ]);
-</script>
+</script> -->

@@ -50,10 +50,11 @@ export default {
           // axios.get(process.env.BASE_URL + 'brand'),
           // axios.get(process.env.BASE_URL + 'events'),
 
+          
+          axios.get('http://127.0.0.1:8000/api/products'),
           axios.get('http://127.0.0.1:8000/api/cate-show'),
           axios.get('http://127.0.0.1:8000/api/brand'),
           axios.get('http://127.0.0.1:8000/api/events'),
-          axios.get('http://127.0.0.1:8000/api/products'),
         ])
         .then(
           axios.spread(
