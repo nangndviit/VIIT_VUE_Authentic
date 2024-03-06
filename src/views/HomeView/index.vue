@@ -1,7 +1,6 @@
 <template>
   <main>
     <!-- Các phần khác -->
-
     <Header />
     <Slider />
     <Category />
@@ -12,11 +11,8 @@
         <h4>{{ categories[0]?.title }}</h4>
         <p class="thanhp">{{ categories[0]?.description }}</p>
         <ul class="grid-list">
-          <Product
-            v-for="(product, index) in categories[0]?.products"
-            :key="'nike-shoes' + index"
-            :product="product"
-          />
+          <Product v-for="(product, index) in categories[0]?.products" :key="'nike-shoes' + index" :product="product"
+            :categories="categories" />
         </ul>
         <ButtonSeeAll />
       </div>
@@ -27,7 +23,6 @@
       <div class="container">
         <h4>Thương Hiệu Nổi Bật</h4>
         <p class="thanhp">Mặt hàng giày các thương hiệu nổi bật</p>
-
         <div class="bran__list">
           <Brand v-for="brand in brands" :key="brand.ID_SP" :brand="brand" />
         </div>
@@ -35,8 +30,7 @@
       <div class="image_res">
         <img
           src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/09/Jordan7RetroInfraredRelease_Prim-1-2048x648.webp"
-          alt=""
-        />
+          alt="" />
       </div>
     </section>
 
@@ -46,18 +40,13 @@
         <h4>{{ categories[1]?.title }}</h4>
         <p class="thanhp">{{ categories[1]?.description }}</p>
         <ul class="grid-list">
-          <Product
-            v-for="(product, index) in categories[1]?.products"
-            :key="'nike-shoes' + index"
-            :product="product"
-          />
+          <Product v-for="(product, index) in categories[1]?.products" :key="'nike-shoes' + index" :product="product"
+            :categories="categories" />
         </ul>
         <ButtonSeeAll />
         <div class="image_res">
-          <img
-            src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/09/Adidas-Yeezy-Slide-2048x648.webp"
-            alt=""
-          />
+          <img src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/09/Adidas-Yeezy-Slide-2048x648.webp"
+            alt="" />
         </div>
       </div>
     </section>
@@ -68,19 +57,15 @@
         <h4>{{ categories[2]?.title }}</h4>
         <p class="thanhp">{{ categories[2]?.description }}</p>
         <ul class="grid-list">
-          <Product
-            v-for="(product, index) in categories[2]?.products"
-            :key="'nike-shoes' + index"
-            :product="product"
-          />
+          <Product v-for="(product, index) in categories[2]?.products" :key="'nike-shoes' + index" :product="product"
+            :categories="categories" />
         </ul>
         <ButtonSeeAll />
       </div>
       <div class="image_res">
         <img
           src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/09/off-white-sneakers-belowretail_P-1-2048x648.webp"
-          alt=""
-        />
+          alt="" />
       </div>
     </section>
 
@@ -90,11 +75,8 @@
         <h4>{{ categories[3]?.title }}</h4>
         <p class="thanhp">{{ categories[3]?.description }}</p>
         <ul class="grid-list">
-          <Product
-            v-for="(product, index) in categories[3]?.products"
-            :key="'nike-shoes' + index"
-            :product="product"
-          />
+          <Product v-for="(product, index) in categories[3]?.products" :key="'nike-shoes' + index" :product="product"
+            :categories="categories" />
         </ul>
         <ButtonSeeAll />
       </div>
@@ -154,13 +136,8 @@ export default {
     async fetchData() {
       axios
         .all([
-          // axios.get(process.env.BASE_URL + 'cate-show'),
-          // axios.get(process.env.BASE_URL + 'products'),
-          // axios.get(process.env.BASE_URL + 'brand'),
-          // axios.get(process.env.BASE_URL + 'events'),
-
           await axios.get("http://127.0.0.1:8000/api/products"),
-          await axios.get("http://127.0.0.1:8000/api/cate/show1"),
+          await axios.get("http://127.0.0.1:8000/api/cate/findID"),
           await axios.get("http://127.0.0.1:8000/api/brand"),
           await axios.get("http://127.0.0.1:8000/api/events"),
         ])

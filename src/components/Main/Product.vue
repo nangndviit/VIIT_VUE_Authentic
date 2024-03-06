@@ -11,7 +11,7 @@
         <i class="fa-regular fa-heart"></i>
       </div>
       <div class="card-content">
-        <p>{{ product.ID_Category }}</p>
+        <p>{{ getCategoryName(product.ID_Category) }}</p>
         <a href="#"> {{ product.Ten_SP }} </a>
         <bdi>{{ product.Gia_SP }} đ</bdi>
       </div>
@@ -26,11 +26,18 @@ export default {
       type: Object,
       required: true,
     },
+    categories: {
+      type: Array,
+      required: true,
+    },
   },
-  data() {
-    return {
-      categories: [],
-    };
+  methods: {
+    getCategoryName(categoryId) {
+      const category = this.categories.find(
+        (cat) => cat.ID_Category === categoryId
+      );
+      return category ? category.Name_Catogory : "Unknown Category";
+    },
   },
 };
 </script>
