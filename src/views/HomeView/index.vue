@@ -136,10 +136,10 @@ export default {
     async fetchData() {
       axios
         .all([
-          await axios.get("http://127.0.0.1:8000/api/products"),
+          await axios.get("http://127.0.0.1:8000/api/products/index"),
           await axios.get("http://127.0.0.1:8000/api/cate/findID"),
-          await axios.get("http://127.0.0.1:8000/api/brand"),
-          await axios.get("http://127.0.0.1:8000/api/events"),
+          await axios.get("http://127.0.0.1:8000/api/brand/index"),
+          await axios.get("http://127.0.0.1:8000/api/event/index"),
         ])
         .then(
           axios.spread(
