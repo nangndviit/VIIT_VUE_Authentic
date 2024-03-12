@@ -46,13 +46,13 @@ const menuClose = document.querySelector(".menu--close")
 const menu = document.querySelector(".navbar2")
 const body = document.querySelector("body")
 
-menuOpen.addEventListener("click", function() {
+menuOpen.addEventListener("click", function () {
   menu.classList.add("menu--active")
   menuClose.classList.add("show")
   body.classList.add("body--disable")
 })
 
-menuClose.addEventListener("click", function() {
+menuClose.addEventListener("click", function () {
   menu.classList.remove("menu--active")
   menuClose.classList.remove("show")
   body.classList.remove("body--disable")

@@ -1,23 +1,26 @@
 <template>
   <li>
-    <div class="product-card">
-      <div class="card-banner">
-        <div class="like-img">
-          <img :src="product.Anh_SP1" :alt="product.Ten_SP" />
+    <router-link class="router_Click" :to="'/products/' + product.ID_SP">
+      <div class="product-card">
+        <div class="card-banner">
+          <div class="like-img">
+            <img :src="product.Anh_SP1" :alt="product.Ten_SP" />
+          </div>
+          <div class="top-img">
+            <img :src="product.Anh_SP2" :alt="product.Ten_SP" />
+          </div>
+          <i class="fa-regular fa-heart"></i>
         </div>
-        <div class="top-img">
-          <img :src="product.Anh_SP2" :alt="product.Ten_SP" />
+        <div class="card-content">
+          <p>{{ getCategoryName(product.ID_Category) }}</p>
+          <a>{{ product.Ten_SP }}</a> 
+          <bdi>{{ product.Gia_SP }} đ</bdi>
         </div>
-        <i class="fa-regular fa-heart"></i>
       </div>
-      <div class="card-content">
-        <p>{{ getCategoryName(product.ID_Category) }}</p>
-        <a href="#"> {{ product.Ten_SP }} </a>
-        <bdi>{{ product.Gia_SP }} đ</bdi>
-      </div>
-    </div>
+    </router-link>
   </li>
 </template>
+
 
 <script>
 export default {
