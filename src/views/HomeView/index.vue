@@ -125,7 +125,7 @@ export default {
       nikeProducts: [],
       products: [],
       categories: [],
-      brand: [],
+      brands: [],
       news: [],
     };
   },
@@ -136,10 +136,10 @@ export default {
     async fetchData() {
       axios
         .all([
-          await axios.get("http://127.0.0.1:8000/api/products/index"),
-          await axios.get("http://127.0.0.1:8000/api/cate/findID"),
-          await axios.get("http://127.0.0.1:8000/api/brand/index"),
-          await axios.get("http://127.0.0.1:8000/api/event/index"),
+          axios.get("http://127.0.0.1:8000/api/products/index"),
+          axios.get("http://127.0.0.1:8000/api/cate/findID"),
+          axios.get("http://127.0.0.1:8000/api/brand/index"),
+          axios.get("http://127.0.0.1:8000/api/event/index"),
         ])
         .then(
           axios.spread(
@@ -151,8 +151,6 @@ export default {
             ) => {
               this.products = productsResponse.data;
               this.categories = categoriesResponse.data.data;
-              // console.log(this.categories.data[1]);
-              // console.log(categoriesResponse.data.data);
               this.brands = brandsResponse.data;
               this.news = newsResponse.data;
             }
@@ -161,6 +159,10 @@ export default {
         .catch((error) => {
           console.error(error);
         });
+    },
+    selectProduct(productId) {
+      // Redirect to product detail page with selected product ID
+      this.$router.push({ name: 'productDetail', params: { id: productId } });
     },
   },
 };

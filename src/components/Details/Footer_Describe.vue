@@ -11,7 +11,7 @@
   <div class="tab-description">
 
     <div class="tab-describe">
-      <p>{{ product.Mo_Ta }}</p>
+      <p>{{ product && product.Mo_Ta }}</p>
       
     </div>
   </div>

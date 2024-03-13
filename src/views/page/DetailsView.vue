@@ -17,7 +17,7 @@
       <div class="container">
         <h4>Sản phẩm nổi bật</h4>
         <ul class="grid-list">
-          <Product v-for="(product, index) in categories[0]?.products" :key="'nike-shoes' + index" :product="product" :categories="categories" />
+          <Product v-for="(product, index) in categories[0]?.products" :key="'nike-shoes' + index" :product="product" :categories="categories" @click="selectProduct(product.ID_SP)" />
         </ul>
       </div>
     </section>
@@ -67,17 +67,25 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const [productsResponse, categoriesResponse, brandsResponse] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/products/index"),
+        const [categoriesResponse, brandsResponse] = await Promise.all([
           axios.get("http://127.0.0.1:8000/api/cate/findID"),
           axios.get("http://127.0.0.1:8000/api/brand/index"),
+          // axios.get("http://127.0.0.1:8000/api/products/show/ID_SP"),
         ]);
-        this.products = productsResponse.data;
         this.categories = categoriesResponse.data.data;
         this.brands = brandsResponse.data;
+   
+        if (this.selectedProductId) {
+          const productResponse = await axios.get(`http://127.0.0.1:8000/api/products/show/${this.selectedProductId}`);
+          this.products = [productResponse.data];
+        }
       } catch (error) {
         console.error(error);
       }
+    },
+    selectProduct(productId) {
+      this.selectedProductId = productId;
+      this.fetchData();
     },
   },
 };

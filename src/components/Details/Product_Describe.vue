@@ -27,16 +27,19 @@ export default {
       );
       return brand ? brand.Name_Brand : "Unknown Brand";
     },
+    goToProductDetail(productId) {
+      this.$router.push({ name: 'details', params: { ID_SP: productId } });
+    }
   }
 }
 </script>
 
 <template>
-  <div class="product__details">
-    <div class="product__details_img">
+    <div class="product__details">
+    <div class="product__details_img" @click="goToProductDetail(product.ID_SP)">
       <div class="product__details__image">
         <div class="product__details_images">
-          <img :src="product.Anh_SP1" />
+          <img :src="product ? product.Anh_SP1 : ''" />
           <i class="fa-regular fa-heart"></i>
           <div class="btn_img">
             <div class="btn_left">
@@ -49,25 +52,25 @@ export default {
         </div>
       </div>
       <div class="additional-images">
-        <img :src="product.Anh_SP2" />
-        <img :src="product.Anh_SP2" />
-        <img :src="product.Anh_SP2" />
-        <img :src="product.Anh_SP2" />
+        <img v-if="product" :src="product.Anh_SP2" />
+        <img v-if="product" :src="product.Anh_SP2" />
+        <img v-if="product" :src="product.Anh_SP2" />
+        <img v-if="product" :src="product.Anh_SP2" />
       </div>
     </div>
 
 
     <div class="product__details__content">
       <div class="product__details__bran">
-        <a href="">{{ getBrandName(product.ID_Brand) }}</a>
+        <a v-if="product" href="">{{ getBrandName(product.ID_Brand) }}</a>
       </div>
 
       <div class="product__details__name">
-        <h1>{{ product.Ten_SP }}</h1>
+        <h1>{{ product && product.Ten_SP }}</h1>
       </div>
 
       <div class="product__details__price">
-        <bdi>{{ product.Gia_SP }} ₫ – {{ product.Gia_SP2 }} ₫</bdi>
+        <bdi>{{ product && product.Gia_SP }} ₫ – {{ product && product.Gia_SP2 }} ₫</bdi>
       </div>
 
       <div class="product__details__panel">

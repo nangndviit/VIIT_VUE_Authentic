@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link class="router_Click" :to="'/products/' + product.ID_SP">
+    <router-link class="router_Click" :to="'/products/' + product.Ten_SP">
       <div class="product-card">
         <div class="card-banner">
           <div class="like-img">
