@@ -1,36 +1,21 @@
-<!-- <template>
+<template>
   <Header />
   <div class="container">
     <div class="thanhngang"></div>
-    <ResultsDisplayed
-      v-for="item in dataResults"
-      :id="item.id"
-      :results="item.results"
-      :popularity="item.popularity"
-      :rating="item.rating"
-      :date="item.date"
-      :price="item.price"
-      :price_desc="item.price_desc"
-      :xem_nhieu="item.xem_nhieu"
-    />
+    <ResultsDisplayed v-for="item in dataResults" :id="item.id" :results="item.results" :popularity="item.popularity"
+      :rating="item.rating" :date="item.date" :price="item.price" :price_desc="item.price_desc"
+      :xem_nhieu="item.xem_nhieu" />
   </div>
   <div class="main_shoe">
     <div class="container">
       <div class="shoe_product">
         <div class="col large-3 hide-for-medium">
           <dwidge class="sidebar-inner">
-            <aside
-              class="widget woocommerce widget_layered_nav woocommerce-widget-layered-nav"
-            >
+            <aside class="widget woocommerce widget_layered_nav woocommerce-widget-layered-nav">
               <span class="widget-title">Lọc theo</span>
               <div class="is-divider small"></div>
               <ul class="ul_fillter_by woocommerce-widget-layered-nav-list">
-                <FilterByShoe
-                  v-for="item in dataFilter"
-                  :id="item.id"
-                  :fillter="item.fillter"
-                  :count="item.count"
-                />
+                <FilterByShoe v-for="item in dataFilter" :id="item.id" :fillter="item.fillter" :count="item.count" />
               </ul>
             </aside>
             <aside class="widget woocommerce widget_price_filter">
@@ -41,15 +26,8 @@
         </div>
         <div class="col large-9">
           <ul class="grid-list">
-            <Product
-              v-for="item in dataProduct"
-              :id="item.id"
-              :title="item.title"
-              :nameProduct="item.nameProduct"
-              :image1="item.image1"
-              :image2="item.image2"
-              :price="item.price"
-            />
+            <!-- <Product v-for="item in dataProduct" :id="item.id" :title="item.title" :nameProduct="item.nameProduct"
+              :image1="item.image1" :image2="item.image2" :price="item.price" /> -->
           </ul>
 
           <nav class="woocommerce-pagination">
@@ -65,15 +43,14 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import ResultsDisplayed from "@/components/Shoe/Results_Displayed_Shoe.vue";
 import FilterByShoe from "@/components/Shoe/Filter_By_Shoe.vue";
 import NumberShoe from "@/components/Shoe/Number_Shoe.vue";
 import DescriptionShoe from "@/components/Shoe/Description_Shoe.vue";
-import Product from "@/components/Main/Product1.vue";
-import { ref } from "vue";
-
+import Product from "@/components/Main/Product.vue";
 let dataResults = ref([
   {
     id: "001",
@@ -86,90 +63,6 @@ let dataResults = ref([
     xem_nhieu: "Sản phẩm xem nhiều",
   },
 ]);
-
-let dataProduct = ref([
-  {
-    id: "001",
-    title: "Giày Jordan 1 (2023)",
-    nameProduct: "Giày Nike Air Force 1 07 White 315122-11",
-    image1:
-      "https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/776547_01.jpg_79fdea599edb49e4ace83698f93f26e1.jpeg",
-    image2:
-      "https://www.chuphinhsanpham.vn/wp-content/uploads/2021/06/chup-hinh-giay-dincox-shoes-c-photo-studio-4.jpg",
-    price: 450000,
-  },
-  {
-    id: "002",
-    title: "Giày Jordan 1 (2023)",
-    nameProduct: "Giày Nike Air Force 1 07 White 315122-11",
-    image1:
-      "https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/776547_01.jpg_79fdea599edb49e4ace83698f93f26e1.jpeg",
-    image2:
-      "https://www.chuphinhsanpham.vn/wp-content/uploads/2021/06/chup-hinh-giay-dincox-shoes-c-photo-studio-4.jpg",
-    price: 450000,
-  },
-  {
-    id: "003",
-    title: "Giày Jordan 1 (2023)",
-    nameProduct: "Giày Nike Air Force 1 07 White 315122-11",
-    image1:
-      "https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/776547_01.jpg_79fdea599edb49e4ace83698f93f26e1.jpeg",
-    image2:
-      "https://www.chuphinhsanpham.vn/wp-content/uploads/2021/06/chup-hinh-giay-dincox-shoes-c-photo-studio-4.jpg",
-    price: 450000,
-  },
-  {
-    id: "004",
-    title: "Giày Jordan 1 (2023)",
-    nameProduct: "Giày Nike Air Force 1 07 White 315122-11",
-    image1:
-      "https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/776547_01.jpg_79fdea599edb49e4ace83698f93f26e1.jpeg",
-    image2:
-      "https://www.chuphinhsanpham.vn/wp-content/uploads/2021/06/chup-hinh-giay-dincox-shoes-c-photo-studio-4.jpg",
-    price: 450000,
-  },
-  {
-    id: "005",
-    title: "Giày Jordan 1 (2023)",
-    nameProduct: "Giày Nike Air Force 1 07 White 315122-11",
-    image1:
-      "https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/776547_01.jpg_79fdea599edb49e4ace83698f93f26e1.jpeg",
-    image2:
-      "https://www.chuphinhsanpham.vn/wp-content/uploads/2021/06/chup-hinh-giay-dincox-shoes-c-photo-studio-4.jpg",
-    price: 450000,
-  },
-  {
-    id: "006",
-    title: "Giày Jordan 1 (2023)",
-    nameProduct: "Giày Nike Air Force 1 07 White 315122-11",
-    image1:
-      "https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/776547_01.jpg_79fdea599edb49e4ace83698f93f26e1.jpeg",
-    image2:
-      "https://www.chuphinhsanpham.vn/wp-content/uploads/2021/06/chup-hinh-giay-dincox-shoes-c-photo-studio-4.jpg",
-    price: 450000,
-  },
-  {
-    id: "007",
-    title: "Giày Jordan 1 (2023)",
-    nameProduct: "Giày Nike Air Force 1 07 White 315122-11",
-    image1:
-      "https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/776547_01.jpg_79fdea599edb49e4ace83698f93f26e1.jpeg",
-    image2:
-      "https://www.chuphinhsanpham.vn/wp-content/uploads/2021/06/chup-hinh-giay-dincox-shoes-c-photo-studio-4.jpg",
-    price: 450000,
-  },
-  {
-    id: "008",
-    title: "Giày Jordan 1 (2023)",
-    nameProduct: "Giày Nike Air Force 1 07 White 315122-11",
-    image1:
-      "https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/776547_01.jpg_79fdea599edb49e4ace83698f93f26e1.jpeg",
-    image2:
-      "https://www.chuphinhsanpham.vn/wp-content/uploads/2021/06/chup-hinh-giay-dincox-shoes-c-photo-studio-4.jpg",
-    price: 450000,
-  },
-]);
-
 let dataFilter = ref([
   {
     id: "001",
@@ -233,20 +126,24 @@ let dataFilter = ref([
 .main_shoe {
   background-color: #f7f7f7;
 }
+
 .shoe_product {
   width: 100%;
   display: flex;
 }
+
 .large-3 {
   flex-basis: 25%;
   max-width: 25%;
   margin-top: 30px;
 }
+
 .large-9 {
   flex-basis: 75%;
   max-width: 75%;
   margin-top: 30px;
 }
+
 nav {
   display: block;
   width: 100%;
@@ -256,13 +153,15 @@ nav {
   .main_shoe {
     width: 100%;
   }
+
   .large-3 {
     display: none;
   }
+
   .large-9 {
     display: block;
     max-width: 100%;
     left: 0;
   }
 }
-</style> -->
+</style>

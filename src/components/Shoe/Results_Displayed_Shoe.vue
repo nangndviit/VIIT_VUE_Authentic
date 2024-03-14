@@ -1,31 +1,21 @@
 <template>
   <div class="results__displayed">
-    <p class="results">{{ results }}</p>
+    <p class="results">Hiển thị 1 – 48 của 39541 kết quả</p>
     <form class="woocommerce-ordering" method="get">
       <select name="orderby" class="orderby" aria-label="Đơn hàng của cửa hàng">
-        <option value="popularity">{{ popularity }}</option>
-        <option value="rating">{{ rating }}</option>
-        <option value="date">{{ date }}</option>
-        <option value="price">{{ price }}</option>
-        <option value="price-desc">{{ price_desc }}</option>
-        <option value="xem_nhieu" selected="selected">{{ xem_nhieu }}</option>
+        <option value="popularity">Thứ tự theo mức độ phổ biến</option>
+        <option value="rating">Thứ tự theo điểm đánh giá</option>
+        <option value="date">Mới nhất</option>
+        <option value="price">Thứ tự theo giá: thấp đến cao</option>
+        <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+        <option value="xem_nhieu" selected="selected">Sản phẩm xem nhiều</option>
       </select>
       <input type="hidden" name="paged" value="1" />
     </form>
   </div>
 </template>
 
-<script setup lang="ts">
-defineProps({
-  id: String,
-  results: String,
-  popularity: String,
-  rating: String,
-  date: String,
-  price: String,
-  price_desc: String,
-  xem_nhieu: String,
-});
+<script>
 </script>
 
 <style>
@@ -70,9 +60,11 @@ defineProps({
   .results {
     display: none;
   }
+
   .woocommerce-ordering {
     width: 100%;
   }
+
   .orderby {
     margin-left: 200px;
     padding: 0 20px;
@@ -83,6 +75,7 @@ defineProps({
   .woocommerce-ordering {
     width: 100%;
   }
+
   .orderby {
     margin-left: 70px;
     padding: 0 20px;

@@ -72,7 +72,7 @@
           </li>
 
           <li class="navbar-item">
-            <RouterLink to="/product/tat-ca-giay" class="route-link">
+            <RouterLink to="/products/tat-ca-giay" class="route-link">
               <a href="#" class="navbar-link" data-nav-link
                 >GIÀY<i class="fa-solid fa-angle-down"></i
               ></a>

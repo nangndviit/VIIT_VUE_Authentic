@@ -1,5 +1,15 @@
 <script>
+import SizeDescribe from "@/components/Details/Size_Describe.vue";
+
 export default {
+  components: {
+    SizeDescribe,
+  },
+  data() {
+    return {
+      sizes: [],
+    };
+  },
   props: {
     product: {
       type: Object,
@@ -12,7 +22,11 @@ export default {
     brands: {
       type: Array,
       required: true,
-    }
+    },
+    sizes: {
+      type: Array,
+      required: true,
+    },
   },
   methods: {
     getCategoryName(categoryId) {
@@ -117,68 +131,7 @@ export default {
                 </th>
                 <td class="value">
                   <ul class="value__label__size">
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">36</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">36.5</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">
-                          37
-                        </span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">37.5</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">38</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">38.5</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">39</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">41</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">42</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">42.5</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">43</span>
-                      </div>
-                    </li>
-                    <li class="value__label__size__items">
-                      <div class="variable-item-contents">
-                        <span class="variable-item-span variable-item-span-button">44</span>
-                      </div>
-                    </li>
+                    <SizeDescribe v-for="size in sizes" :size="size" />
                   </ul>
                 </td>
               </tr>
