@@ -14,13 +14,12 @@
         <div class="card-content">
           <p>{{ getCategoryName(product.ID_Category) }}</p>
           <a>{{ product.Ten_SP }}</a>
-          <bdi>{{ product.Gia_SP }} đ</bdi>
+          <bdi>{{ product.Gia_SP }} đ</bdi> 
         </div>
       </div>
     </router-link>
   </li>
 </template>
-
 
 <script>
 export default {
@@ -36,11 +35,16 @@ export default {
   },
   methods: {
     getCategoryName(categoryId) {
+      if (!Array.isArray(this.categories)) {
+        console.error("Categories is not an array.");
+        return "";
+      }
       const category = this.categories.find(
         (cat) => cat.ID_Category === categoryId
       );
       return category ? category.Name_Catogory : "Unknown Category";
     },
+
   },
 };
 </script>

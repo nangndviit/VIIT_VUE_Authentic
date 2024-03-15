@@ -1,16 +1,19 @@
 <template>
   <li class="li_fillter_by woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
-    <a class="a_fillter_by" rel="nofollow" href="#">{{ fillter }}</a>
-    <span class="count">{{ count }}</span>
+    <a class="a_fillter_by" rel="nofollow" href="#">{{ size.size_name }}</a>
+    <span class="count">({{ size.size_ton }})</span>
   </li>
 </template>
 
-<script setup lang="ts">
-defineProps({
-  id: String,
-  fillter: String,
-  count: String,
-});
+<script>
+export default {
+  props: {
+    size: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style>
@@ -20,6 +23,7 @@ defineProps({
   line-height: 25.6px;
   margin: 0px 0px 20px;
 }
+
 .widget-title {
   color: #0a0a0a;
   font-size: 1em;
@@ -28,6 +32,7 @@ defineProps({
   line-height: 1.05;
   text-transform: uppercase;
 }
+
 .is-divider {
   margin-top: 0.66em;
   visibility: hidden;
@@ -59,6 +64,7 @@ defineProps({
   padding: 6px 0;
   left: 0;
 }
+
 .count {
   display: block;
   font-size: 12px;

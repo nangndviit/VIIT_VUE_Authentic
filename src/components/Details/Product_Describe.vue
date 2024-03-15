@@ -19,10 +19,6 @@ export default {
       type: Array,
       required: true,
     },
-    brands: {
-      type: Array,
-      required: true,
-    },
     sizes: {
       type: Array,
       required: true,
@@ -30,30 +26,22 @@ export default {
   },
   methods: {
     getCategoryName(categoryId) {
-      const category = this.categories.find(
-        (cat) => cat.ID_Category === categoryId
-      );
-      return category ? category.Name_Category : "Unknown Category";
-    },
-    getBrandName(brandId) {
-      const brand = this.brands.find(
-        (br) => br.ID_Brand === brandId
-      );
-      return brand ? brand.Name_Brand : "Unknown Brand";
-    },
-    goToProductDetail(productId) {
-      this.$router.push({ name: 'details', params: { ID_SP: productId } });
+      if (this.categories && Array.isArray(this.categories)) {
+        const category = this.categories.find(cat => cat.ID_Category === categoryId);
+        return category ? category.Name_Catogory : '';
+      }
+      return '';
     }
   }
 }
 </script>
 
 <template>
-    <div class="product__details">
-    <div class="product__details_img" @click="goToProductDetail(product.ID_SP)">
+  <div class="product__details">
+    <div class="product__details_img">
       <div class="product__details__image">
         <div class="product__details_images">
-          <img :src="product ? product.Anh_SP1 : ''" />
+          <img :src=product.Anh_SP1 alt="">
           <i class="fa-regular fa-heart"></i>
           <div class="btn_img">
             <div class="btn_left">
@@ -76,7 +64,7 @@ export default {
 
     <div class="product__details__content">
       <div class="product__details__bran">
-        <a v-if="product" href="">{{ getBrandName(product.ID_Brand) }}</a>
+        <a v-if="product" href="">{{ getCategoryName(product.ID_Category) }}</a>
       </div>
 
       <div class="product__details__name">
@@ -131,7 +119,7 @@ export default {
                 </th>
                 <td class="value">
                   <ul class="value__label__size">
-                    <SizeDescribe v-for="size in sizes" :size="size" />
+                    <!-- <SizeDescribe v-for="size in sizes" :size="size" /> -->
                   </ul>
                 </td>
               </tr>
@@ -183,51 +171,51 @@ export default {
       </div>
 
       <div class="product_ccordion">
-      <div class="ccordion_item">
-        <a href="" class="ccordion_itemss">
-          <button class="toggle">
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <span class="toggle_name">Hệ Thống Cửa Hàng</span>
-        </a>
-      </div>
+        <div class="ccordion_item">
+          <a href="" class="ccordion_itemss">
+            <button class="toggle">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <span class="toggle_name">Hệ Thống Cửa Hàng</span>
+          </a>
+        </div>
 
-      <div class="ccordion_item">
-        <a href="" class="ccordion_itemss">
-          <button class="toggle">
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <span class="toggle_name">Cam Kết Khách Hàng</span>
-        </a>
-      </div>
+        <div class="ccordion_item">
+          <a href="" class="ccordion_itemss">
+            <button class="toggle">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <span class="toggle_name">Cam Kết Khách Hàng</span>
+          </a>
+        </div>
 
-      <div class="ccordion_item">
-        <a href="" class="ccordion_itemss">
-          <button class="toggle">
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <span class="toggle_name">Chính Sách Đổi Trả, Bảo Hành</span>
-        </a>
-      </div>
+        <div class="ccordion_item">
+          <a href="" class="ccordion_itemss">
+            <button class="toggle">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <span class="toggle_name">Chính Sách Đổi Trả, Bảo Hành</span>
+          </a>
+        </div>
 
-      <div class="ccordion_item">
-        <a href="" class="ccordion_itemss">
-          <button class="toggle">
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <span class="toggle_name">Chính Sách Vận Chuyển</span>
-        </a>
-      </div>
+        <div class="ccordion_item">
+          <a href="" class="ccordion_itemss">
+            <button class="toggle">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <span class="toggle_name">Chính Sách Vận Chuyển</span>
+          </a>
+        </div>
 
-      <div class="ccordion_item">
-        <a href="" class="ccordion_itemss">
-          <button class="toggle">
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <span class="toggle_name">Phương Thức Thanh Toán</span>
-        </a>
+        <div class="ccordion_item">
+          <a href="" class="ccordion_itemss">
+            <button class="toggle">
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <span class="toggle_name">Phương Thức Thanh Toán</span>
+          </a>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </template>

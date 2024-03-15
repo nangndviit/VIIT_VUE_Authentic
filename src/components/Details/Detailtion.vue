@@ -12,7 +12,7 @@
 
     <div class="tab-describe">
       <p>{{ product && product.Mo_Ta }}</p>
-      
+
     </div>
   </div>
 </template>
