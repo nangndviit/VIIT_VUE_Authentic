@@ -27,8 +27,9 @@
         <div class="col large-9">
           <!-- Hiển thị danh sách sản phẩm -->
           <ul class="grid-list">
-            <ProductAll v-for="(product, index) in products" :key="product.ID_SP" :product="product"
+            <Product v-for="(product, index) in products" :key="product.ID_SP" :product="product"
               :categories="categories" />
+
           </ul>
 
           <nav class="woocommerce-pagination">
@@ -44,7 +45,6 @@
 </template>
 
 <script>
-import { ref } from "vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import ResultsDisplayed from "@/components/Shoe/Results_Displayed_Shoe.vue";
@@ -52,7 +52,7 @@ import FilterByShoe from "@/components/Shoe/Filter_By_Shoe.vue";
 import FilterPriceShoe from "@/components/Shoe/Filter_Price_Shoe.vue";
 import NumberShoe from "@/components/Shoe/Number_Shoe.vue";
 import DescriptionShoe from "@/components/Shoe/Description_Shoe.vue";
-import ProductAll from "@/components/Main/Product_All.vue";
+import Product from "@/components/Main/Product.vue";
 import axios from "axios";
 
 export default {
@@ -63,7 +63,7 @@ export default {
     FilterPriceShoe,
     NumberShoe,
     DescriptionShoe,
-    ProductAll,
+    Product,
     Footer,
   },
   data() {
@@ -84,25 +84,55 @@ export default {
   },
   methods: {
     async fetchData() {
-      try {
-        const [productsResponse, sizesResponse, categoriesResponse] = await Promise.all([
+      axios
+        .all([
           axios.get("http://127.0.0.1:8000/api/products/index"),
-          axios.get("http://127.0.0.1:8000/api/size/"),
           axios.get("http://127.0.0.1:8000/api/cate/findID"),
-        ]);
-        this.products = productsResponse.data;
-        this.sizes = sizesResponse.data;
-
-        if (Array.isArray(categoriesResponse.data)) {
-          this.categories = categoriesResponse.data;
-        } else {
-          console.error("Categories data is not an array:", categoriesResponse.data);
-        }
-      } catch (error) {
-        console.error(error);
-      }
+          axios.get("http://127.0.0.1:8000/api/size/"),
+        ])
+        .then(
+          axios.spread(
+            (
+              productsResponse,
+              categoriesResponse,
+              sizesResponse,
+            ) => {
+              this.products = productsResponse.data;
+              this.categories = categoriesResponse.data.data;
+              this.sizes = sizesResponse.data;
+            }
+          )
+        )
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    selectProduct(productId) {
+      // Redirect to product detail page with selected product ID
+      this.$router.push({ name: 'productDetail', params: { id: productId } });
     },
   },
+  // methods: {
+  //   async fetchData() {
+  //     try {
+  //       const [productsResponse, sizesResponse, categoriesResponse] = await Promise.all([
+  //         axios.get("http://127.0.0.1:8000/api/products/index"),
+  //         axios.get("http://127.0.0.1:8000/api/size/"),
+  //         axios.get("http://127.0.0.1:8000/api/cate/findID"),
+  //       ]);
+  //       this.products = productsResponse.data;
+  //       this.sizes = sizesResponse.data;
+
+  //       if (Array.isArray(categoriesResponse.data)) {
+  //         this.categories = categoriesResponse.data;
+  //       } else {
+  //         console.error("Categories data is not an array:", categoriesResponse.data);
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   },
+  // },
 };
 </script>
 

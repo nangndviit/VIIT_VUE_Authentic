@@ -36,11 +36,10 @@ export default {
   },
   methods: {
     getCategoryName(categoryId) {
-      const category = this.categories.find(
-        (cat) => cat.ID_Category === categoryId
-      );
+      const category = this.categories.find(cat => cat.ID_Category === categoryId);
       return category ? category.Name_Catogory : "Unknown Category";
     },
+
   },
 };
 </script>

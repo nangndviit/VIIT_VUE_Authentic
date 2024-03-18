@@ -13,16 +13,6 @@
         <Detailtion :product="product" />
       </div>
     </div>
-    <!-- Product1 -->
-    <section class="section brand" aria-label="brand">
-      <div class="container">
-        <h4>Sản phẩm nổi bật</h4>
-        <ul class="grid-list">
-          <!-- <Product v-for="(product, index) in categories[0]?.products" :key="'nike-shoes' + index" :product="product"
-            :categories="categories" @click="selectProduct(product.ID_SP)" /> -->
-        </ul>
-      </div>
-    </section>
     <Footer />
   </main>
 </template>
@@ -46,9 +36,6 @@ export default {
   data() {
     return {
       product: {},
-      categories: [],
-      brands: [],
-      sizes: [],
       selectedProductId: null,
     };
   },

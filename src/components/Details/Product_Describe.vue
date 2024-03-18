@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       sizes: [],
+      categoryName: '',
     };
   },
   props: {
@@ -15,23 +16,21 @@ export default {
       type: Object,
       required: true,
     },
-    categories: {
-      type: Array,
-      required: true,
-    },
-    sizes: {
-      type: Array,
-      required: true,
-    },
   },
   methods: {
-    getCategoryName(categoryId) {
-      if (this.categories && Array.isArray(this.categories)) {
-        const category = this.categories.find(cat => cat.ID_Category === categoryId);
-        return category ? category.Name_Catogory : '';
+    async fetchDataFromApi() {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/products/takePounds/' + this.$route.params.ID_SP);
+        const data = await response.json();
+        this.categoryName = data.data.category.Name_Catogory;
+        this.sizes = data.data.sizes;
+      } catch (error) {
+        // console.error('Error fetching data:', error);
       }
-      return '';
-    }
+    },
+  },
+  mounted() {
+    this.fetchDataFromApi();
   }
 }
 </script>
@@ -54,25 +53,25 @@ export default {
         </div>
       </div>
       <div class="additional-images">
-        <img v-if="product" :src="product.Anh_SP2" />
-        <img v-if="product" :src="product.Anh_SP2" />
-        <img v-if="product" :src="product.Anh_SP2" />
-        <img v-if="product" :src="product.Anh_SP2" />
+        <img :src="product.Anh_SP2" />
+        <img :src="product.Anh_SP2" />
+        <img :src="product.Anh_SP2" />
+        <img :src="product.Anh_SP2" />
       </div>
     </div>
 
 
     <div class="product__details__content">
       <div class="product__details__bran">
-        <a v-if="product" href="">{{ getCategoryName(product.ID_Category) }}</a>
+        <a href="">{{ categoryName }}</a>
       </div>
 
       <div class="product__details__name">
-        <h1>{{ product && product.Ten_SP }}</h1>
+        <h1>{{ product.Ten_SP }}</h1>
       </div>
 
       <div class="product__details__price">
-        <bdi>{{ product && product.Gia_SP }} ₫ – {{ product && product.Gia_SP2 }} ₫</bdi>
+        <bdi>{{ product.Gia_SP }} ₫ – {{ product.Gia_SP2 }} ₫</bdi>
       </div>
 
       <div class="product__details__panel">
@@ -119,7 +118,7 @@ export default {
                 </th>
                 <td class="value">
                   <ul class="value__label__size">
-                    <!-- <SizeDescribe v-for="size in sizes" :size="size" /> -->
+                    <SizeDescribe :sizes="sizes" />
                   </ul>
                 </td>
               </tr>
@@ -168,52 +167,52 @@ export default {
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="product_ccordion">
-        <div class="ccordion_item">
-          <a href="" class="ccordion_itemss">
-            <button class="toggle">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <span class="toggle_name">Hệ Thống Cửa Hàng</span>
-          </a>
-        </div>
+        <div class="product_ccordion">
+          <div class="ccordion_item">
+            <a href="" class="ccordion_itemss">
+              <button class="toggle">
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <span class="toggle_name">Hệ Thống Cửa Hàng</span>
+            </a>
+          </div>
 
-        <div class="ccordion_item">
-          <a href="" class="ccordion_itemss">
-            <button class="toggle">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <span class="toggle_name">Cam Kết Khách Hàng</span>
-          </a>
-        </div>
+          <div class="ccordion_item">
+            <a href="" class="ccordion_itemss">
+              <button class="toggle">
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <span class="toggle_name">Cam Kết Khách Hàng</span>
+            </a>
+          </div>
 
-        <div class="ccordion_item">
-          <a href="" class="ccordion_itemss">
-            <button class="toggle">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <span class="toggle_name">Chính Sách Đổi Trả, Bảo Hành</span>
-          </a>
-        </div>
+          <div class="ccordion_item">
+            <a href="" class="ccordion_itemss">
+              <button class="toggle">
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <span class="toggle_name">Chính Sách Đổi Trả, Bảo Hành</span>
+            </a>
+          </div>
 
-        <div class="ccordion_item">
-          <a href="" class="ccordion_itemss">
-            <button class="toggle">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <span class="toggle_name">Chính Sách Vận Chuyển</span>
-          </a>
-        </div>
+          <div class="ccordion_item">
+            <a href="" class="ccordion_itemss">
+              <button class="toggle">
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <span class="toggle_name">Chính Sách Vận Chuyển</span>
+            </a>
+          </div>
 
-        <div class="ccordion_item">
-          <a href="" class="ccordion_itemss">
-            <button class="toggle">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <span class="toggle_name">Phương Thức Thanh Toán</span>
-          </a>
+          <div class="ccordion_item">
+            <a href="" class="ccordion_itemss">
+              <button class="toggle">
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <span class="toggle_name">Phương Thức Thanh Toán</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -1,18 +1,16 @@
 <template>
-
-  <li class="value__label__size__items">
+  <li v-for="size in sizes" :key="size.id" class="value__label__size__items">
     <div class="variable-item-contents">
       <span class="variable-item-span variable-item-span-button">{{ size.size_name }}</span>
     </div>
   </li>
-
 </template>
 
 <script>
 export default {
   props: {
-    size: {
-      type: Object,
+    sizes: {
+      type: Array,
       required: true,
     },
   },
