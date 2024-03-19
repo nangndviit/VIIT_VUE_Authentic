@@ -6,7 +6,6 @@
 
       <div class="product__main">
         <Detail :product="product" :size="size" />
-        <!-- <h1>{{ product }}</h1> -->
       </div>
 
       <div class="describe">

@@ -13,7 +13,6 @@
               <span class="widget-title">Lọc theo</span>
               <div class="is-divider small"></div>
               <ul class="ul_fillter_by woocommerce-widget-layered-nav-list">
-                <!-- Hiển thị danh sách kích thước sản phẩm -->
                 <FilterByShoe v-for="size in sizes" :key="size.ID_SP" :size="size" />
               </ul>
             </aside>
@@ -25,9 +24,8 @@
           </dwidge>
         </div>
         <div class="col large-9">
-          <!-- Hiển thị danh sách sản phẩm -->
           <ul class="grid-list">
-            <Product v-for="(product, index) in products" :key="product.ID_SP" :product="product"
+            <Product v-for="(product) in products" :key="product.ID_SP" :product="product"
               :categories="categories" />
 
           </ul>
@@ -41,7 +39,9 @@
       </div>
     </div>
   </div>
+
   <Footer />
+  
 </template>
 
 <script>

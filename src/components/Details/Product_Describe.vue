@@ -53,10 +53,10 @@ export default {
         </div>
       </div>
       <div class="additional-images">
-        <img :src="product.Anh_SP2" />
-        <img :src="product.Anh_SP2" />
-        <img :src="product.Anh_SP2" />
-        <img :src="product.Anh_SP2" />
+        <img :src="product.Anh_SP2 ? product.Anh_SP2 : 'https://imgs.search.brave.com/oB6fgT45DC10B0RQfk3kTBtZ0W-2p7udZUxPnfvKT3M/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA0LzYyLzkzLzY2/LzM2MF9GXzQ2Mjkz/NjY4OV9CcEVFY3hm/Z011WVBmVGFJQU9D/MXRDRHVybXNubzdT/cC5qcGc'" alt="Product Images"/>
+        <img :src="product.Anh_SP2 ? product.Anh_SP2 : 'https://imgs.search.brave.com/oB6fgT45DC10B0RQfk3kTBtZ0W-2p7udZUxPnfvKT3M/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA0LzYyLzkzLzY2/LzM2MF9GXzQ2Mjkz/NjY4OV9CcEVFY3hm/Z011WVBmVGFJQU9D/MXRDRHVybXNubzdT/cC5qcGc'" alt="Product Images"/>
+        <img :src="product.Anh_SP2 ? product.Anh_SP2 : 'https://imgs.search.brave.com/oB6fgT45DC10B0RQfk3kTBtZ0W-2p7udZUxPnfvKT3M/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA0LzYyLzkzLzY2/LzM2MF9GXzQ2Mjkz/NjY4OV9CcEVFY3hm/Z011WVBmVGFJQU9D/MXRDRHVybXNubzdT/cC5qcGc'" alt="Product Images"/>
+        <img :src="product.Anh_SP2 ? product.Anh_SP2 : 'https://imgs.search.brave.com/oB6fgT45DC10B0RQfk3kTBtZ0W-2p7udZUxPnfvKT3M/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA0LzYyLzkzLzY2/LzM2MF9GXzQ2Mjkz/NjY4OV9CcEVFY3hm/Z011WVBmVGFJQU9D/MXRDRHVybXNubzdT/cC5qcGc'" alt="Product Images"/>
       </div>
     </div>
 
@@ -117,9 +117,9 @@ export default {
                   <label for="">Kích Thước</label>
                 </th>
                 <td class="value">
-                  <ul class="value__label__size">
+                  
                     <SizeDescribe :sizes="sizes" />
-                  </ul>
+                  
                 </td>
               </tr>
             </tbody>
