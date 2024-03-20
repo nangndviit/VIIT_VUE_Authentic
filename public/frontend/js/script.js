@@ -38,8 +38,6 @@ const activeElemOnScroll = function () {
 addEventOnElem(window, "scroll", activeElemOnScroll);
 
 
-
-
 // sidebar moblie
 const menuOpen = document.querySelector(".menu--open")
 const menuClose = document.querySelector(".menu--close")
@@ -57,4 +55,3 @@ menuClose.addEventListener("click", function () {
   menuClose.classList.remove("show")
   body.classList.remove("body--disable")
 })
-

@@ -77,7 +77,6 @@
                 >GIÀY<i class="fa-solid fa-angle-down"></i
               ></a>
             </RouterLink>
-            
           </li>
 
           <li class="navbar-item">
@@ -104,14 +103,25 @@
       <!-- tìm kiếm, đăng nhập và shop -->
 
       <div class="header-actions">
-        <button class="action-btn-search" aria-label="Search">
-          <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-        </button>
+
+        <div class="search-icon" @click="toggleSearchBar">
+          <i class="fas fa-search"></i>
+        </div>
+
+        <div class="search-bar" :class="{ active: isSearchBarVisible }">
+          <input type="text" placeholder="Tìm kiếm..." v-model="searchQuery" @input="search" />
+          <button class="but-search-iconss" type="submit" @click="search">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="btn-closes" @click="toggleSearchBar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
 
         <button class="activitithngang"></button>
 
         <button class="action-btn-cart" aria-label="cart">
-          <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+          <i class="fa-solid fa-bag-shopping"></i>
         </button>
       </div>
     </div>
@@ -119,7 +129,92 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isSearchBarVisible: false,
+      searchQuery: '',
+      searchResults: [],
+    };
+  },
+  methods: {
+    toggleSearchBar() {
+      this.isSearchBarVisible = !this.isSearchBarVisible;
+    },
+    async search() {
+      try {
+        const response = await axios.get('/api/search/', { params: { query: this.searchQuery } });
+        this.searchResults = response.data;
+      } catch (error) {
+        console.error('Error searching:', error);
+      }
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped></style>
+
+<style>
+.search-icon {
+  font-size: 20px;
+  font-weight: 400;
+  grid-area: auto;
+  line-height: 22px;
+  text-align: center;
+  padding: 5px;
+}
+
+.search-bar {
+  display: none;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(62, 62, 62, 0.782);
+  padding: 20px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.search-bar.active input {
+  width: 40%;
+  font-size: 16px;
+  height: 60px;
+  margin-top: 300px;
+  text-align: left;
+  border: none;
+  background-color: hsla(0, 0%, 100%, 0.244);
+  border-color: hsla(0, 0%, 100%, .09);
+  color: #fff;
+  border-radius: 99px;
+  box-shadow: none;
+  color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.search-bar.active input::placeholder {
+  color: #ffffff;
+  font-size: 20px; 
+}
+
+.search-bar.active .btn-closes {
+  float: right;
+  text-align: center;
+  font-size: 30px;
+}
+
+.search-bar.active {
+  display: block;
+}
+
+
+.but-search-iconss{
+  display: inline;
+  font-size: 20px;
+  color: #fff;
+  margin-left: -50px;
+}
+</style>
