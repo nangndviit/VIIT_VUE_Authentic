@@ -1,7 +1,6 @@
 <template>
     <div class="name_search">
-        Tìm kiếm:
-        <!-- Tìm kiếm: {{ product.Ten_SP }} -->
+        Tìm kiếm: {{ name }}
     </div>
 
     <div class="product_search">
@@ -9,5 +8,6 @@
     </div>
 
 </template>
-<script></script>
+<script>
+</script>
 <style></style>

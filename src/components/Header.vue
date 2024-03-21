@@ -109,7 +109,7 @@
           <i class="fas fa-search"></i>
         </div>
 
-        <form>
+        <form @submit.prevent="handleSubmit">
           <div class="search-bar" :class="{ active: isSearchBarVisible }">
               <input type="text" name="key" placeholder="Tìm kiếm..." v-model="searchQuery" />
               <button class="but-search-iconss" type="submit">
@@ -134,28 +134,21 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isSearchBarVisible: false,
-      searchQuery: "",
-      searchResults: [],
-    };
-  },
-  methods: {
-    toggleSearchBar() {
-      this.isSearchBarVisible = !this.isSearchBarVisible;
+    data() {
+        return {
+            searchQuery: '', // Khai báo biến searchQuery
+            isSearchBarVisible: false
+        };
     },
-    async search() {
-      try {
-        const response = await axios.get("/api/search/", {
-          params: { query: this.searchQuery },
-        });
-        this.searchResults = response.data;
-      } catch (error) {
-        console.error("Error searching:", error);
-      }
-    },
-  },
+    methods: {
+        toggleSearchBar() {
+            this.isSearchBarVisible = !this.isSearchBarVisible;
+        },
+        handleSubmit() {
+            // Chuyển hướng đến trang 'tim-kiem' với query parameter 'key' khi người dùng submit form
+            this.$router.push({ name: 'tim-kiem', query: { key: this.searchQuery } });
+        }
+    }
 };
 </script>
 
