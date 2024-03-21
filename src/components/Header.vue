@@ -10,10 +10,12 @@
 
       <!-- logo -->
       <a href="#" class="logo">
-        <img
-          src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/ft-logo.webp"
-          alt
-        />
+        <RouterLink to="/" class="route-link">
+          <img
+            src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/04/ft-logo.webp"
+            alt
+          />
+        </RouterLink>
       </a>
 
       <nav class="navbar2" data-navbar>
@@ -103,20 +105,22 @@
       <!-- tìm kiếm, đăng nhập và shop -->
 
       <div class="header-actions">
-
         <div class="search-icon" @click="toggleSearchBar">
           <i class="fas fa-search"></i>
         </div>
 
-        <div class="search-bar" :class="{ active: isSearchBarVisible }">
-          <input type="text" placeholder="Tìm kiếm..." v-model="searchQuery" @input="search" />
-          <button class="but-search-iconss" type="submit" @click="search">
-            <i class="fas fa-search"></i>
-          </button>
-          <button class="btn-closes" @click="toggleSearchBar">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
+        <form>
+          <div class="search-bar" :class="{ active: isSearchBarVisible }">
+              <input type="text" name="key" placeholder="Tìm kiếm..." v-model="searchQuery" />
+              <button class="but-search-iconss" type="submit">
+                  <i class="fas fa-search"></i>
+              </button>
+              <button class="btn-closes" @click="toggleSearchBar">
+                  <i class="fa-solid fa-xmark"></i>
+              </button>
+          </div>
+      </form>
+
 
         <button class="activitithngang"></button>
 
@@ -133,7 +137,7 @@ export default {
   data() {
     return {
       isSearchBarVisible: false,
-      searchQuery: '',
+      searchQuery: "",
       searchResults: [],
     };
   },
@@ -143,16 +147,17 @@ export default {
     },
     async search() {
       try {
-        const response = await axios.get('/api/search/', { params: { query: this.searchQuery } });
+        const response = await axios.get("/api/search/", {
+          params: { query: this.searchQuery },
+        });
         this.searchResults = response.data;
       } catch (error) {
-        console.error('Error searching:', error);
+        console.error("Error searching:", error);
       }
     },
   },
 };
 </script>
-
 
 <style>
 .search-icon {
@@ -187,7 +192,7 @@ export default {
   text-align: left;
   border: none;
   background-color: hsla(0, 0%, 100%, 0.244);
-  border-color: hsla(0, 0%, 100%, .09);
+  border-color: hsla(0, 0%, 100%, 0.09);
   color: #fff;
   border-radius: 99px;
   box-shadow: none;
@@ -197,7 +202,7 @@ export default {
 
 .search-bar.active input::placeholder {
   color: #ffffff;
-  font-size: 20px; 
+  font-size: 20px;
 }
 
 .search-bar.active .btn-closes {
@@ -210,8 +215,7 @@ export default {
   display: block;
 }
 
-
-.but-search-iconss{
+.but-search-iconss {
   display: inline;
   font-size: 20px;
   color: #fff;
