@@ -21,9 +21,9 @@
       <nav class="navbar2" data-navbar>
         <ul class="navbar-list2">
           <li class="sreach">
-            <form action="#" method="GET">
-              <div class="search-box">
-                <input type="text" name="search" placeholder="Tìm kiếm..." />
+            <form action="#" @submit.prevent="handleSubmit" method="GET">
+              <div class="search-box" :class="{ active: isSearchBarVisible }">
+                <input type="text" name="key" placeholder="Tìm kiếm..."  v-model="searchQuery" />
                 <button class="but-search" type="submit">
                   <i class="fas fa-search"></i>
                 </button>
@@ -109,7 +109,7 @@
           <i class="fas fa-search"></i>
         </div>
 
-        <form @submit.prevent="handleSubmit">
+        <form @submit.prevent="handleSubmit" method="GET">
           <div class="search-bar" :class="{ active: isSearchBarVisible }">
               <input type="text" name="key" placeholder="Tìm kiếm..." v-model="searchQuery" />
               <button class="but-search-iconss" type="submit">
@@ -119,7 +119,7 @@
                   <i class="fa-solid fa-xmark"></i>
               </button>
           </div>
-      </form>
+        </form>
 
 
         <button class="activitithngang"></button>

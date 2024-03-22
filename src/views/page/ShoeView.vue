@@ -108,31 +108,9 @@ export default {
         });
     },
     selectProduct(productId) {
-      // Redirect to product detail page with selected product ID
       this.$router.push({ name: 'productDetail', params: { id: productId } });
     },
   },
-  // methods: {
-  //   async fetchData() {
-  //     try {
-  //       const [productsResponse, sizesResponse, categoriesResponse] = await Promise.all([
-  //         axios.get("http://127.0.0.1:8000/api/products/index"),
-  //         axios.get("http://127.0.0.1:8000/api/size/"),
-  //         axios.get("http://127.0.0.1:8000/api/cate/findID"),
-  //       ]);
-  //       this.products = productsResponse.data;
-  //       this.sizes = sizesResponse.data;
-
-  //       if (Array.isArray(categoriesResponse.data)) {
-  //         this.categories = categoriesResponse.data;
-  //       } else {
-  //         console.error("Categories data is not an array:", categoriesResponse.data);
-  //       }
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   },
-  // },
 };
 </script>
 
