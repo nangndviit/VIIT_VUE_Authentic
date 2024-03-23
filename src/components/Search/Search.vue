@@ -1,20 +1,27 @@
 <template>
-  <div class="name_search">
-    Tìm kiếm:
-    <p>{{ $route.query.key }}</p>
-  </div>
+  <div>
+    <div class="name_search">
+      Tìm kiếm:
+      <p>{{ $route.query.key }}</p>
+    </div>
 
-  <div class="product_search">
-    <ul class="grid-list">
-        <!-- <Product v-for="(product) in products" :key="product.ID_SP" :product="product"
-              :categories="categories" /> -->
-      <Product
-        v-for="(product, index) in products"
-        :key="$route.query.key + index"
-        :product="product"
-        :categories="categories"
-      />
-    </ul>
+    <div class="product_search">
+      <ul class="grid-list">
+        <template v-if="products.length > 0">
+          <Product
+            v-for="(product) in products"
+            :key="product.ID_SP"
+            :product="product"
+            :categories="categories"
+          />
+        </template>
+        <template v-else>
+          <div class="name_Notification">
+            <p>Không tìm thấy kết quả tìm kiếm.</p>
+          </div>
+        </template>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -39,13 +46,15 @@ export default {
   methods: {
     async fetchData() {
       try {
-        let res = await axios.get(
-          "http://127.0.0.1:8000/api/search?key=" + this.$route.query.key,
-          "http://127.0.0.1:8000/api/cate/findID" + this.$route.query.key,
-        );
-        this.products = res.data;
+        let [productsRes, categoriesRes] = await Promise.all([
+          axios.get("http://127.0.0.1:8000/api/search?key=" + this.$route.query.key),
+          axios.get("http://127.0.0.1:8000/api/cate/getAll"),
+        ]);
+
+        this.products = productsRes.data;
+        this.categories = categoriesRes.data.data;
       } catch (error) {
-        // console.error(error);
+        console.error(error);
       }
     },
   },
@@ -63,6 +72,18 @@ export default {
 }
 
 .name_search p {
+  font-weight: 700;
+}
+
+.name_Notification {
+  display: flex;
+  color: #0a0a0a;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center; 
+}
+
+.name_Notification p {
   font-weight: 700;
 }
 </style>
