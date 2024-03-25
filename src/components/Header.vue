@@ -93,7 +93,9 @@
             ></a>
           </li>
           <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-link>SỰ KIỆN - TIN TỨC</a>
+            <RouterLink to="/blogs/news" class="route-link">
+              <a href="#" class="navbar-link" data-nav-link>SỰ KIỆN - TIN TỨC</a>
+            </RouterLink>
           </li>
 
           <li class="navbar-item">

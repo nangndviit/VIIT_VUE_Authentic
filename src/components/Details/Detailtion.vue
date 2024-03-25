@@ -9,7 +9,6 @@
     </div>
   </div>
   <div class="tab-description">
-
     <div class="tab-describe">
       <p>{{ product && product.Mo_Ta }}</p>
 

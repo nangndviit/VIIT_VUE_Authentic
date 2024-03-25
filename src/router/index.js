@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
+
 import HomeView from "../views/HomeView/index.vue";
 import DetailsView from "../views/page/DetailsView.vue";
 import ShoeView from "../views/page/ShoeView.vue";
 import Search from "../views/page/SearchView.vue";
+import BlogsView from "../views/page/BlogsView.vue";
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(),
     routes: [
         {
             path: "/",
@@ -21,6 +23,11 @@ const router = createRouter({
             path: "/products/tat-ca-giay",
             name: "all-shoes",
             component: ShoeView,
+        },
+        {
+            path: "/blogs/news",
+            name: "all-news",
+            component: BlogsView,
         },
         {
             path: "/tim-kiem",
