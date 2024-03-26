@@ -82,15 +82,19 @@
           </li>
 
           <li class="navbar-item">
+            <RouterLink to="/products/tat-ca-quan-ao" class="route-link">
             <a href="#" class="navbar-link" data-nav-link
               >ÁO QUẦN<i class="fa-solid fa-angle-down"></i
             ></a>
+          </RouterLink>
           </li>
 
           <li class="navbar-item">
+            <RouterLink to="/products/tat-ca-phu-kien" class="route-link">
             <a href="#" class="navbar-link" data-nav-link
               >PHỤ KIỆN<i class="fa-solid fa-angle-down"></i
             ></a>
+            </RouterLink>
           </li>
           <li class="navbar-item">
             <RouterLink to="/blogs/news" class="route-link">
@@ -99,7 +103,9 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-link>LIÊN HỆ</a>
+            <RouterLink to="/lien-he" class="route-link">
+              <a href="#" class="navbar-link" data-nav-link>LIÊN HỆ</a>
+            </RouterLink>
           </li>
         </ul>
       </nav>

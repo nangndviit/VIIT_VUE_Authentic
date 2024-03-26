@@ -1,45 +1,40 @@
 <template>
   <div class="blog_new">
-    <div class="news_all">
+    <div class="news_all" v-for="event in events" :key="event.id">
       <div class="new_all_img">
-        <img
-          src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/03/Thiet-ke-chua-co-ten-93-2.png"
-          alt=""
-        />
+        <img :src="event.Anh_Events" alt="" />
       </div>
       <div class="new_all_cmt">
-        <p>Khẳng định đẳng cấp: Những “cỗ máy thời gian” Rolex</p>
-      </div>
-      <div class="new_date">
-
-      </div>
-    </div>
-    <div class="news_all">
-      <div class="new_all_img">
-        <img
-          src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/03/Thiet-ke-chua-co-ten-93-2.png"
-          alt=""
-        />
-      </div>
-      <div class="new_all_cmt">
-        <p>Khẳng định đẳng cấp: Những “cỗ máy thời gian” Rolex</p>
-      </div>
-    </div>
-    <div class="news_all">
-      <div class="new_all_img">
-        <img
-          src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/03/Thiet-ke-chua-co-ten-93-2.png"
-          alt=""
-        />
-      </div>
-      <div class="new_all_cmt">
-        <p>Khẳng định đẳng cấp: Những “cỗ máy thời gian” Rolex</p>
-        <div class="is-divider"></div>
+        <p>{{ event.Ten_Events }}</p>
       </div>
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      events: [],
+    };
+  },
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      try {
+        let [eventsRes] = await Promise.all([
+          axios.get("http://127.0.0.1:8000/api/event/index"),
+        ]);
+        this.events = eventsRes.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+};
+</script>
 <style>
 .blog_new {
   background-position: 50% 50%;

@@ -32,12 +32,6 @@ export default {
     NewNumber,
     Footer,
   },
-  data() {
-    return {};
-  },
-  computed: {
-    methods: {},
-  },
 };
 </script>
 

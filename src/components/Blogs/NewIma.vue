@@ -1,37 +1,31 @@
 <template>
   <div class="new_hots">
     <div class="new_hots_large">
-      <div class="new_large_8">
+      <!-- Hiển thị sự kiện lớn -->
+      <div class="new_large_8" v-for="event in largeEvents" :key="event.id">
         <div class="new_large_8_img">
-          <img
-            src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/03/Thiet-ke-chua-co-ten-29-3.png"
-            alt=""
-          />
+          <img :src="event.Anh_Events ? event.Anh_Events : ''" alt="" />
           <div class="overlay">
-            <p>5 “huyền thoại” Nike Panda Dunk khuấy đảo giới sneakerhead</p>
+            <p>{{ event.Ten_Events ? event.Ten_Events : '' }}</p>
           </div>
         </div>
       </div>
       <div class="new_large_4">
-        <div class="new_large_4_above">
+         <!-- Hiển thị sự kiện nhỏ phía trên -->
+        <div class="new_large_4_above" v-for="event in smallaboveEvents" :key="event.id">
           <div class="new_large_4_img_above">
-            <img
-              src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/03/Thiet-ke-chua-co-ten-17-3.png"
-              alt=""
-            />
+            <img :src="event.Anh_Events ? event.Anh_Events : ''" alt="" />
             <div class="overlay_lagre_4_above">
-              <p>BLACKPINK “chinh phục” mọi phong cách với BST giày hiệu</p>
+              <p>{{ event.Ten_Events ? event.Ten_Events : '' }}</p>
             </div>
           </div>
         </div>
-        <div class="new_large_4_below">
+         <!-- Hiển thị sự kiện nhỏ phía dưới -->
+        <div class="new_large_4_below" v-for="event in smallbelowEvents" :key="event.id">
           <div class="new_large_4_img_below">
-            <img
-              src="https://cdn.authentic-shoes.com/wp-content/uploads/2024/03/Thiet-ke-chua-co-ten-13-2.png"
-              alt=""
-            />
+            <img :src="event.Anh_Events ? event.Anh_Events : ''" alt="" />
             <div class="overlay_lagre_4_below">
-              <p>Vẻ đẹp tiện lợi: Giày slip-on – Cho cuộc sống năng động</p>
+              <p>{{ event.Ten_Events ? event.Ten_Events : '' }}</p>
             </div>
           </div>
         </div>
@@ -39,7 +33,41 @@
     </div>
   </div>
 </template>
-<script></script>
+
+<script>
+export default {
+  data() {
+    return {
+      largeEvents: [],      // Mảng sự kiện lớn
+      smallaboveEvents: [],    // Mảng sự kiện nhỏ phía trên
+      smallbelowEvents: []     // Mảng sự kiện nhỏ phía dưới
+    };
+  },
+  mounted() {
+    this.fetchNewEvents();
+  },
+  methods: {
+    async fetchNewEvents() {
+      try {
+        // Gọi API để lấy danh sách sự kiện mới nhất
+        let response = await axios.get('http://127.0.0.1:8000/api/event/index');
+        
+        // Lấy 3 sự kiện mới nhất
+        this.newEvents = response.data.slice(0, 3);
+        
+        // Chia đều 3 sự kiện vào các mảng
+        this.largeEvents = this.newEvents.slice(0, 1);
+        this.smallaboveEvents = this.newEvents.slice(1, 2);
+        this.smallbelowEvents = this.newEvents.slice(2, 3);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
+};
+</script>
+
+
 <style>
 .new_hots {
     display: flex;

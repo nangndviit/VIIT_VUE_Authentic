@@ -21,11 +21,5 @@ export default {
         Search,
         Footer,
     },
-    data() {
-        return {};
-    },
-    computed: {
-        methods: {},
-    },
 };
 </script>

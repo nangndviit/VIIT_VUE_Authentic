@@ -276,7 +276,6 @@ body {
 
 .value__label__size__items {
   display: flex;
-  /* flex: 0 0 calc(20% - 1px); */
   margin-bottom: 5px;
 }
 
@@ -304,6 +303,12 @@ body {
   text-align: center;
   border-radius: 10px;
   border: 1px solid rgb(192, 192, 192);
+  transition: border-width 0.15s; 
+}
+
+.variable-item-span:hover{
+  width: 45px;
+  border: 1px solid rgba(94, 94, 94, 0.308);
 }
 
 /* cart */

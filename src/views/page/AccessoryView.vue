@@ -1,22 +1,19 @@
 <template>
   <Header />
-  <Shoe />
+  <AccessoryView />
   <Footer />
-  
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import Shoe from "@/components/Shoe/Shoe_All.vue"
+import AccessoryView from "@/components/Shoe/Accessory_All.vue";
 
 export default {
   components: {
     Header,
-    Shoe,
+    AccessoryView,
     Footer,
   },
-  
 };
 </script>
-
