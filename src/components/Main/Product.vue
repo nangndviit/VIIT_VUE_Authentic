@@ -21,7 +21,6 @@
   </li>
 </template>
 
-
 <script>
 export default {
   props: {
@@ -35,15 +34,16 @@ export default {
     },
   },
   methods: {
-  getCategoryName(categoryId) {
-    if (Array.isArray(this.categories)) {
-      const category = this.categories.find(cat => cat.ID_Category === categoryId);
-      return category ? category.Name_Catogory : "Unknown Category";
-    } else {
-      return "Unknown Category";
-    }
+    getCategoryName(categoryId) {
+      if (Array.isArray(this.categories)) {
+        const category = this.categories.find(
+          (cat) => cat.ID_Category === categoryId
+        );
+        return category ? category.Name_Catogory : "Unknown Category";
+      } else {
+        return "Unknown Category";
+      }
+    },
   },
-},
-
 };
 </script>

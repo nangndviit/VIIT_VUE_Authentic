@@ -8,48 +8,63 @@ import BlogsView from "../views/page/BlogsView.vue";
 import ClotheView from "../views/page/ClotheView.vue";
 import AccessoryView from "../views/page/AccessoryView.vue";
 import ContactView from "../views/page/ContactView.vue";
+import BrandView from "../views/page/BrandView.vue";
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
+            //trang chủ
             path: "/",
             name: "home",
             component: HomeView,
         },
         {
+            //chi tiết sản phẩm
             path: "/products/:ID_SP",
             name: "details",
             component: DetailsView,
         },
         {
+            //tất cả brands
+            path: "/brands/:ID_Brand",
+            name: "all-brands",
+            component: BrandView,
+        },
+        {
+            //tất cả giày
             path: "/products/tat-ca-giay",
             name: "all-shoes",
             component: ShoeView,
         },
         {
+            //tất cả quần áo
             path: "/products/tat-ca-quan-ao",
             name: "all-clothes",
             component: ClotheView,
         },
         {
+            // tất cả phụ kiện
             path: "/products/tat-ca-phu-kien",
             name: "all-accessory",
             component: AccessoryView,
         },
         {
+            // tin tức sự kiện 
             path: "/blogs/news",
             name: "all-news",
             component: BlogsView,
         },
         {
+            // liên hệ
             path: "/lien-he",
-            name: "lien-he",
+            name: "contact",
             component: ContactView,
         },
         {
+            // tìm kiếm
             path: "/tim-kiem",
-            name: "tim-kiem",
+            name: "search",
             component: Search,
         },
     ],

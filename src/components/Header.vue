@@ -23,7 +23,12 @@
           <li class="sreach">
             <form action="#" @submit.prevent="handleSubmit" method="GET">
               <div class="search-box" :class="{ active: isSearchBarVisible }">
-                <input type="text" name="key" placeholder="Tìm kiếm..."  v-model="searchQuery" />
+                <input
+                  type="text"
+                  name="key"
+                  placeholder="Tìm kiếm..."
+                  v-model="searchQuery"
+                />
                 <button class="but-search" type="submit">
                   <i class="fas fa-search"></i>
                 </button>
@@ -32,34 +37,46 @@
           </li>
 
           <li class="navbar-item2">
-            <a href="#" class="navbar-link2" data-nav-link
-              >GIÀY JORDAN KHÁC <i class="fa-solid fa-chevron-right"></i
-            ></a>
+            <RouterLink to="/products/tat-ca-giay" class="route-link">
+              <a href="#" class="navbar-link2" data-nav-link
+                >GIÀY JORDAN KHÁC <i class="fa-solid fa-chevron-right"></i
+              ></a>
+            </RouterLink>
           </li>
 
           <li class="navbar-item2">
-            <a href="#" class="navbar-link2" data-nav-link
-              >GIÀY SNEAKER <i class="fa-solid fa-chevron-right"></i
-            ></a>
+            <RouterLink to="/products/tat-ca-giay" class="route-link">
+              <a href="#" class="navbar-link2" data-nav-link
+                >GIÀY SNEAKER <i class="fa-solid fa-chevron-right"></i
+              ></a>
+            </RouterLink>
           </li>
 
           <li class="navbar-item2">
-            <a href="#" class="navbar-link2" data-nav-link>
-              QUẦN ÁO<i class="fa-solid fa-chevron-right"></i
-            ></a>
+            <RouterLink to="/products/tat-ca-quan-ao" class="route-link">
+              <a href="#" class="navbar-link2" data-nav-link>
+                QUẦN ÁO<i class="fa-solid fa-chevron-right"></i
+              ></a>
+            </RouterLink>
           </li>
 
           <li class="navbar-item2">
-            <a href="#" class="navbar-link2" data-nav-link
-              >PHỤ KIỆN<i class="fa-solid fa-chevron-right"></i
-            ></a>
+            <RouterLink to="/products/tat-ca-phu-kien" class="route-link">
+              <a href="#" class="navbar-link2" data-nav-link
+                >PHỤ KIỆN<i class="fa-solid fa-chevron-right"></i
+              ></a>
+            </RouterLink>
           </li>
           <li class="navbar-item2">
-            <a href="#" class="navbar-link2" data-nav-link>NEWS</a>
+            <RouterLink to="/blogs/news" class="route-link">
+              <a href="#" class="navbar-link2" data-nav-link>NEWS</a>
+            </RouterLink>
           </li>
 
           <li class="navbar-item2">
-            <a href="#" class="navbar-link2" data-nav-link>LIÊN HỆ</a>
+            <RouterLink to="/lien-he" class="route-link">
+              <a href="#" class="navbar-link2" data-nav-link>LIÊN HỆ</a>
+            </RouterLink>
           </li>
         </ul>
       </nav>
@@ -83,22 +100,24 @@
 
           <li class="navbar-item">
             <RouterLink to="/products/tat-ca-quan-ao" class="route-link">
-            <a href="#" class="navbar-link" data-nav-link
-              >ÁO QUẦN<i class="fa-solid fa-angle-down"></i
-            ></a>
-          </RouterLink>
+              <a href="#" class="navbar-link" data-nav-link
+                >ÁO QUẦN<i class="fa-solid fa-angle-down"></i
+              ></a>
+            </RouterLink>
           </li>
 
           <li class="navbar-item">
             <RouterLink to="/products/tat-ca-phu-kien" class="route-link">
-            <a href="#" class="navbar-link" data-nav-link
-              >PHỤ KIỆN<i class="fa-solid fa-angle-down"></i
-            ></a>
+              <a href="#" class="navbar-link" data-nav-link
+                >PHỤ KIỆN<i class="fa-solid fa-angle-down"></i
+              ></a>
             </RouterLink>
           </li>
           <li class="navbar-item">
             <RouterLink to="/blogs/news" class="route-link">
-              <a href="#" class="navbar-link" data-nav-link>SỰ KIỆN - TIN TỨC</a>
+              <a href="#" class="navbar-link" data-nav-link
+                >SỰ KIỆN - TIN TỨC</a
+              >
             </RouterLink>
           </li>
 
@@ -119,16 +138,20 @@
 
         <form @submit.prevent="handleSubmit" method="GET">
           <div class="search-bar" :class="{ active: isSearchBarVisible }">
-              <input type="text" name="key" placeholder="Tìm kiếm..." v-model="searchQuery" />
-              <button class="but-search-iconss" type="submit">
-                  <i class="fas fa-search"></i>
-              </button>
-              <button class="btn-closes" @click="toggleSearchBar">
-                  <i class="fa-solid fa-xmark"></i>
-              </button>
+            <input
+              type="text"
+              name="key"
+              placeholder="Tìm kiếm..."
+              v-model="searchQuery"
+            />
+            <button class="but-search-iconss" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+            <button class="btn-closes" @click="toggleSearchBar">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
           </div>
         </form>
-
 
         <button class="activitithngang"></button>
 
@@ -142,21 +165,21 @@
 
 <script>
 export default {
-    data() {
-        return {
-            searchQuery: '', // Khai báo biến searchQuery
-            isSearchBarVisible: false
-        };
+  data() {
+    return {
+      searchQuery: "", // Khai báo biến searchQuery
+      isSearchBarVisible: false,
+    };
+  },
+  methods: {
+    toggleSearchBar() {
+      this.isSearchBarVisible = !this.isSearchBarVisible;
     },
-    methods: {
-        toggleSearchBar() {
-            this.isSearchBarVisible = !this.isSearchBarVisible;
-        },
-        handleSubmit() {
-            // Chuyển hướng đến trang 'tim-kiem' với query parameter 'key' khi người dùng submit form
-            this.$router.push({ name: 'tim-kiem', query: { key: this.searchQuery } });
-        }
-    }
+    handleSubmit() {
+      // Chuyển hướng đến trang 'tim-kiem' với query parameter 'key' khi người dùng submit form
+      this.$router.push({ name: "tim-kiem", query: { key: this.searchQuery } });
+    },
+  },
 };
 </script>
 
