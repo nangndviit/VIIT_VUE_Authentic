@@ -50,7 +50,7 @@ export default {
     async fetchNewEvents() {
       try {
         // Gọi API để lấy danh sách sự kiện mới nhất
-        let response = await axios.get('http://127.0.0.1:8000/api/event/index');
+        let response = await axios.get(`${import.meta.env.VITE_API_URL}/event/index`);
         
         // Lấy 3 sự kiện mới nhất
         this.newEvents = response.data.slice(0, 3);

@@ -28,8 +28,6 @@
   </ul>
 </template>
 
-<script></script>
-
 <style>
 ul.links {
   width: 100%;

@@ -84,10 +84,10 @@
         try {
           const sizeId = this.$route.params.id;
           const sizesOneResponse = await axios.get(
-            `http://127.0.0.1:8000/api/size/show-one/${sizeId}`
+            `${import.meta.env.VITE_API_URL}/size/show-one/${sizeId}`
           );
           const categoriesResponse = await axios.get(
-            "http://127.0.0.1:8000/api/cate/findID"
+            `${import.meta.env.VITE_API_URL}/cate/findID`
           );
   
           this.sizes = sizesOneResponse.data;

@@ -151,10 +151,10 @@ export default {
     async fetchData() {
       axios
         .all([
-          axios.get("http://127.0.0.1:8000/api/products/index"),
-          axios.get("http://127.0.0.1:8000/api/cate/findID"),
-          axios.get("http://127.0.0.1:8000/api/brand/index"),
-          axios.get("http://127.0.0.1:8000/api/event/index"),
+          axios.get(`${import.meta.env.VITE_API_URL}/products/index`),
+          axios.get(`${import.meta.env.VITE_API_URL}/cate/findID`),
+          axios.get(`${import.meta.env.VITE_API_URL}/brand/index`),
+          axios.get(`${import.meta.env.VITE_API_URL}/event/index`),
         ])
         .then(
           axios.spread(

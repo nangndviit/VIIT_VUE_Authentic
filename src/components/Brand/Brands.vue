@@ -84,13 +84,13 @@ export default {
       try {
         const brandId = this.$route.params.ID_Brand;
         const brandsResponse = await axios.get(
-          `http://127.0.0.1:8000/api/brand/takePounds/${brandId}`
+          `${import.meta.env.VITE_API_URL}/brand/takePounds/${brandId}`
         );
         const categoriesResponse = await axios.get(
-          "http://127.0.0.1:8000/api/cate/findID"
+          `${import.meta.env.VITE_API_URL}/cate/findID`
         );
         const sizesResponse = await axios.get(
-          "http://127.0.0.1:8000/api/size/show-number"
+          `${import.meta.env.VITE_API_URL}/size/show-number`
         );
 
         this.brands = brandsResponse.data;

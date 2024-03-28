@@ -10,7 +10,6 @@
 <script>
 import LayoutView from "@/layout/LayoutView.vue";
 import Search from "@/components/Search/Search.vue";
-import axios from "axios";
 
 export default {
     components: {

@@ -19,7 +19,6 @@ import LayoutView from "@/layout/LayoutView.vue";
 import Detail from "@/components/Details/Product_Describe.vue";
 import Detailtion from "@/components/Details/Detailtion.vue";
 import Product from "@/components/Main/Product.vue";
-import axios from "axios";
 
 export default {
   components: {
@@ -52,7 +51,7 @@ export default {
   methods: {
     async fetchData() {
       try {
-        let res = await axios.get("http://127.0.0.1:8000/api/products/takePounds/" + this.$route.params.ID_SP)
+        let res = await axios.get(`${import.meta.env.VITE_API_URL}/products/takePounds/` + this.$route.params.ID_SP)
         this.product = res.data.data
       } catch (error) {
         console.error(error);

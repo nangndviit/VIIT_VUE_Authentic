@@ -18,7 +18,6 @@ import NewNumber from "@/components/Blogs/NewNumber.vue";
 import NewAll from "@/components/Blogs/NewAll.vue";
 import NewCate from "@/components/Blogs/NewCate.vue";
 import NewIma from "@/components/Blogs/NewIma.vue";
-import axios from "axios";
 
 export default {
   components: {

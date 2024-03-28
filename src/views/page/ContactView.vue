@@ -7,7 +7,6 @@
 <script>
 import Contact from "@/components/Contact/Contact.vue";
 import LayoutView from "@/layout/LayoutView.vue";
-import axios from "axios";
 
 export default {
   components: {

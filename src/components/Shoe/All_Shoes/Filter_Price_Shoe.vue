@@ -4,10 +4,6 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style>
 .btn_loc {
   margin-top: 20px;

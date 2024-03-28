@@ -20,7 +20,7 @@ export default {
   methods: {
     async fetchDataFromApi() {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/products/takePounds/' + this.$route.params.ID_SP);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/products/takePounds/` + this.$route.params.ID_SP);
         const data = await response.json();
         this.categoryName = data.data.category.Name_Catogory;
         this.sizes = data.data.sizes;

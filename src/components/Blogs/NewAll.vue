@@ -25,7 +25,7 @@ export default {
     async fetchData() {
       try {
         let [eventsRes] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/event/index"),
+          axios.get(`${import.meta.env.VITE_API_URL}/event/index`),
         ]);
         this.events = eventsRes.data;
       } catch (error) {

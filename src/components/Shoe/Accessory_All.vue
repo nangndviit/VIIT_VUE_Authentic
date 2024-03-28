@@ -86,9 +86,9 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const productsResponse = await axios.get("http://127.0.0.1:8000/api/cate/search?key=phụ kiện");
-        const categoriesResponse = await axios.get("http://127.0.0.1:8000/api/cate/findID");
-        const sizesResponse = await axios.get("http://127.0.0.1:8000/api/size/show-ml");
+        const productsResponse = await axios.get(`${import.meta.env.VITE_API_URL}/cate/search?key=phụ kiện`);
+        const categoriesResponse = await axios.get(`${import.meta.env.VITE_API_URL}/cate/findID`);
+        const sizesResponse = await axios.get(`${import.meta.env.VITE_API_URL}/size/show-ml`);
 
         this.products = productsResponse.data;
         this.categories = categoriesResponse.data.data;

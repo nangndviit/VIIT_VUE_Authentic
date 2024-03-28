@@ -47,8 +47,8 @@ export default {
     async fetchData() {
       try {
         let [productsRes, categoriesRes] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/search?key=" + this.$route.query.key),
-          axios.get("http://127.0.0.1:8000/api/cate/getAll"),
+          axios.get(`${import.meta.env.VITE_API_URL}/search?key=` + this.$route.query.key),
+          axios.get(`${import.meta.env.VITE_API_URL}/cate/getAll`),
         ]);
 
         this.products = productsRes.data;

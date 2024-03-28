@@ -15,9 +15,6 @@
   </div>
 </template>
 
-<script>
-</script>
-
 <style>
 .results__displayed {
   max-width: 100%;
