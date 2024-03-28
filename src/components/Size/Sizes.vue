@@ -50,56 +50,55 @@
   </template>
   
   <script>
-import ResultsDisplayed from "@/components/Shoe/All_Shoes/Results_Displayed_Shoe.vue";
-import FilterByShoe from "@/components/Shoe/All_Shoes/Filter_By_Shoe.vue";
-import FilterPriceShoe from "@/components/Shoe/All_Shoes/Filter_Price_Shoe.vue";
-import NumberShoe from "@/components/Shoe/All_Shoes/Number_Shoe.vue";
-import DescriptionShoe from "@/components/Shoe/All_Shoes/Description_Shoe.vue";
-import Product from "@/components/Main/Product.vue";
-import axios from "axios";
-
-export default {
-  components: {
-    ResultsDisplayed,
-    FilterByShoe,
-    FilterPriceShoe,
-    NumberShoe,
-    DescriptionShoe,
-    Product,
-  },
-  data() {
-    return {
-      products: [],
-      categories: [],
-      sizes: [],
-      selectedProductId: null,
-    };
-  },
-  created() {
-    this.fetchData();
-  },
-  computed: {
-    selectedProduct() {
-      return this.products.find(product => product.ID_SP === this.selectedProductId) || {};
+  import ResultsDisplayed from "@/components/Shoe/All_Shoes/Results_Displayed_Shoe.vue";
+  import FilterByShoe from "@/components/Shoe/All_Shoes/Filter_By_Shoe.vue";
+  import FilterPriceShoe from "@/components/Shoe/All_Shoes/Filter_Price_Shoe.vue";
+  import NumberShoe from "@/components/Shoe/All_Shoes/Number_Shoe.vue";
+  import DescriptionShoe from "@/components/Shoe/All_Shoes/Description_Shoe.vue";
+  import Product from "@/components/Main/Product.vue";
+  import axios from "axios";
+  
+  export default {
+    components: {
+      ResultsDisplayed,
+      FilterByShoe,
+      FilterPriceShoe,
+      NumberShoe,
+      DescriptionShoe,
+      Product,
     },
-  },
-  methods: {
-    async fetchData() {
-      try {
-        const productsResponse = await axios.get("http://127.0.0.1:8000/api/cate/search?key=phụ kiện");
-        const categoriesResponse = await axios.get("http://127.0.0.1:8000/api/cate/findID");
-        const sizesResponse = await axios.get("http://127.0.0.1:8000/api/size/show-ml");
-
-        this.products = productsResponse.data;
-        this.categories = categoriesResponse.data.data;
-        this.sizes = sizesResponse.data;
-      } catch (error) {
-        console.error(error);
-      }
+    data() {
+      return {
+        sizes: [],
+        products: [],
+        categories: [],
+        sizes: [],
+        selectedBrandId: null,
+      };
     },
-    selectProduct(productId) {
-      this.$router.push({ name: 'productDetail', params: { id: productId } });
+    created() {
+      this.fetchData();
     },
-  },
-};
-</script>
+    methods: {
+      async fetchData() {
+        try {
+          const sizeId = this.$route.params.id;
+          const sizesOneResponse = await axios.get(
+            `http://127.0.0.1:8000/api/size/show-one/${sizeId}`
+          );
+          const categoriesResponse = await axios.get(
+            "http://127.0.0.1:8000/api/cate/findID"
+          );
+  
+          this.sizes = sizesOneResponse.data;
+          this.categories = categoriesResponse.data.data;
+          this.products = sizesOneResponse.data.data.products;
+          console.log(this.sizes);
+        } catch (error) {
+          console.error(error);
+        }
+      },
+    },
+  };
+  </script>
+  

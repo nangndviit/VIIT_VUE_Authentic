@@ -1,7 +1,6 @@
 <template>
-  <main>
+  <LayoutView>
     <!-- Các phần khác -->
-    <Header />
     <Slider />
     <Category />
 
@@ -11,8 +10,12 @@
         <h4>{{ categories[0]?.title }}</h4>
         <p class="thanhp">{{ categories[0]?.description }}</p>
         <ul class="grid-list">
-          <Product v-for="(product, index) in categories[0]?.products" :key="'nike-shoes' + index" :product="product"
-            :categories="categories" />
+          <Product
+            v-for="(product, index) in categories[0]?.products"
+            :key="'nike-shoes' + index"
+            :product="product"
+            :categories="categories"
+          />
         </ul>
         <ButtonSeeAll />
       </div>
@@ -30,7 +33,8 @@
       <div class="image_res">
         <img
           src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/09/Jordan7RetroInfraredRelease_Prim-1-2048x648.webp"
-          alt="" />
+          alt=""
+        />
       </div>
     </section>
 
@@ -40,13 +44,19 @@
         <h4>{{ categories[1]?.title }}</h4>
         <p class="thanhp">{{ categories[1]?.description }}</p>
         <ul class="grid-list">
-          <Product v-for="(product, index) in categories[1]?.products" :key="'nike-shoes' + index" :product="product"
-            :categories="categories" />
+          <Product
+            v-for="(product, index) in categories[1]?.products"
+            :key="'nike-shoes' + index"
+            :product="product"
+            :categories="categories"
+          />
         </ul>
         <ButtonSeeAll />
         <div class="image_res">
-          <img src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/09/Adidas-Yeezy-Slide-2048x648.webp"
-            alt="" />
+          <img
+            src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/09/Adidas-Yeezy-Slide-2048x648.webp"
+            alt=""
+          />
         </div>
       </div>
     </section>
@@ -57,15 +67,20 @@
         <h4>{{ categories[2]?.title }}</h4>
         <p class="thanhp">{{ categories[2]?.description }}</p>
         <ul class="grid-list">
-          <Product v-for="(product, index) in categories[2]?.products" :key="'nike-shoes' + index" :product="product"
-            :categories="categories" />
+          <Product
+            v-for="(product, index) in categories[2]?.products"
+            :key="'nike-shoes' + index"
+            :product="product"
+            :categories="categories"
+          />
         </ul>
         <ButtonSeeAll />
       </div>
       <div class="image_res">
         <img
           src="https://cdn.authentic-shoes.com/wp-content/uploads/2023/09/off-white-sneakers-belowretail_P-1-2048x648.webp"
-          alt="" />
+          alt=""
+        />
       </div>
     </section>
 
@@ -75,8 +90,12 @@
         <h4>{{ categories[3]?.title }}</h4>
         <p class="thanhp">{{ categories[3]?.description }}</p>
         <ul class="grid-list">
-          <Product v-for="(product, index) in categories[3]?.products" :key="'nike-shoes' + index" :product="product"
-            :categories="categories" />
+          <Product
+            v-for="(product, index) in categories[3]?.products"
+            :key="'nike-shoes' + index"
+            :product="product"
+            :categories="categories"
+          />
         </ul>
         <ButtonSeeAll />
       </div>
@@ -93,14 +112,11 @@
         </div>
       </div>
     </section>
-
-    <Footer />
-  </main>
+  </LayoutView>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import LayoutView from "@/layout/LayoutView.vue";
 import Category from "@/components/Main/Category.vue";
 import Slider from "@/components/Main/Slider.vue";
 import New from "@/components/Main/New.vue";
@@ -111,14 +127,13 @@ import axios from "axios";
 
 export default {
   components: {
-    Header,
+    LayoutView,
     Slider,
     Category,
     Product,
     Brand,
     New,
     ButtonSeeAll,
-    Footer,
   },
   data() {
     return {
@@ -162,7 +177,7 @@ export default {
     },
     selectProduct(productId) {
       // Redirect to product detail page with selected product ID
-      this.$router.push({ name: 'productDetail', params: { id: productId } });
+      this.$router.push({ name: "productDetail", params: { id: productId } });
     },
   },
 };

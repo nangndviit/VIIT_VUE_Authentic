@@ -50,8 +50,6 @@
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
 import ResultsDisplayed from "@/components/Shoe/All_Shoes/Results_Displayed_Shoe.vue";
 import FilterByShoe from "@/components/Shoe/All_Shoes/Filter_By_Shoe.vue";
 import FilterPriceShoe from "@/components/Shoe/All_Shoes/Filter_Price_Shoe.vue";
@@ -62,14 +60,12 @@ import axios from "axios";
 
 export default {
   components: {
-    Header,
     ResultsDisplayed,
     FilterByShoe,
     FilterPriceShoe,
     NumberShoe,
     DescriptionShoe,
     Product,
-    Footer,
   },
   data() {
     return {
@@ -92,7 +88,7 @@ export default {
       try {
         const productsResponse = await axios.get("http://127.0.0.1:8000/api/cate/search?key=quần áo");
         const categoriesResponse = await axios.get("http://127.0.0.1:8000/api/cate/findID");
-        const sizesResponse = await axios.get("http://127.0.0.1:8000/api/size/");
+        const sizesResponse = await axios.get("http://127.0.0.1:8000/api/size/show-letter");
 
 
         this.products = productsResponse.data;

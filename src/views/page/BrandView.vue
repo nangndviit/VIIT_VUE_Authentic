@@ -1,22 +1,18 @@
 <template>
-    <main>
-        <Header />
-        <Brand />
-        <Footer />
-    </main>
+  <LayoutView>
+    <Brand />
+  </LayoutView>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
 import Brand from "@/components/Brand/Brands.vue";
-import Footer from "@/components/Footer.vue";
+import LayoutView from "@/layout/LayoutView.vue";
 import axios from "axios";
 
 export default {
-    components: {
-        Header,
-        Brand,
-        Footer,
-    },
+  components: {
+    LayoutView,
+    Brand,
+  },
 };
 </script>

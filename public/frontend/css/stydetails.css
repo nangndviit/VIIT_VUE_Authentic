@@ -295,7 +295,7 @@ body {
 }
 
 .variable-item-span {
-  width: 43px;
+  width: 55px;
   padding: 5px;
   font-size: 14px;
   cursor: pointer;
@@ -307,8 +307,8 @@ body {
 }
 
 .variable-item-span:hover{
-  width: 45px;
-  border: 1px solid rgba(94, 94, 94, 0.308);
+  width: 55px;
+  border: 2px solid rgba(94, 94, 94, 0.308);
 }
 
 /* cart */

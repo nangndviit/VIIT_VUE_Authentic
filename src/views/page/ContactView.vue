@@ -1,21 +1,18 @@
 <template>
-    <Header />
+  <LayoutView>
     <Contact />
-    <Footer />
-    
-  </template>
-  
-  <script>
-  import Header from "@/components/Header.vue";
-  import Footer from "@/components/Footer.vue";
-  import Contact from "@/components/Contact/Contact.vue"
-  
-  export default {
-    components: {
-      Header,
-      Contact,
-      Footer,
-    },
-    
-  };
-  </script>
+  </LayoutView>
+</template>
+
+<script>
+import Contact from "@/components/Contact/Contact.vue";
+import LayoutView from "@/layout/LayoutView.vue";
+import axios from "axios";
+
+export default {
+  components: {
+    LayoutView,
+    Contact,
+  },
+};
+</script>

@@ -9,6 +9,7 @@ import ClotheView from "../views/page/ClotheView.vue";
 import AccessoryView from "../views/page/AccessoryView.vue";
 import ContactView from "../views/page/ContactView.vue";
 import BrandView from "../views/page/BrandView.vue";
+import SizeView from "../views/page/SizeView.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -30,6 +31,13 @@ const router = createRouter({
             path: "/brands/:ID_Brand",
             name: "all-brands",
             component: BrandView,
+        },
+        
+        {
+            //tất cả brands
+            path: "/products/kich-thuoc-san-pham/:id",
+            name: "one-size",
+            component: SizeView,
         },
         {
             //tất cả giày

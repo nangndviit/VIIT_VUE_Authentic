@@ -1,19 +1,17 @@
 <template>
-  <Header />
-  <AccessoryView />
-  <Footer />
+  <LayoutView>
+    <AccessoryView />
+  </LayoutView>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import LayoutView from "@/layout/LayoutView.vue";
 import AccessoryView from "@/components/Shoe/Accessory_All.vue";
 
 export default {
   components: {
-    Header,
+    LayoutView,
     AccessoryView,
-    Footer,
   },
 };
 </script>

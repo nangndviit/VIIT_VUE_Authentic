@@ -90,7 +90,7 @@ export default {
           "http://127.0.0.1:8000/api/cate/findID"
         );
         const sizesResponse = await axios.get(
-          "http://127.0.0.1:8000/api/size/"
+          "http://127.0.0.1:8000/api/size/show-number"
         );
 
         this.brands = brandsResponse.data;

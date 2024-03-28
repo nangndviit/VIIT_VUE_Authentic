@@ -1,22 +1,17 @@
 <template>
-  <Header />
-  <Shoe />
-  <Footer />
-  
+  <LayoutView>
+    <Shoe />
+  </LayoutView>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
-import Shoe from "@/components/Shoe/Shoe_All.vue"
+import LayoutView from "@/layout/LayoutView.vue";
+import Shoe from "@/components/Shoe/Shoe_All.vue";
 
 export default {
   components: {
-    Header,
+    LayoutView,
     Shoe,
-    Footer,
   },
-  
 };
 </script>
-

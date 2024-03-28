@@ -117,9 +117,7 @@ export default {
                   <label for="">Kích Thước</label>
                 </th>
                 <td class="value">
-                  
                     <SizeDescribe :sizes="sizes" />
-                  
                 </td>
               </tr>
             </tbody>

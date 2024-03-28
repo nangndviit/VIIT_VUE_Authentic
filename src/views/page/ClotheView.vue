@@ -1,22 +1,18 @@
 <template>
-    <Header />
+  <LayoutView>
     <Clothe />
-    <Footer />
-    
-  </template>
-  
-  <script>
-  import Header from "@/components/Header.vue";
-  import Footer from "@/components/Footer.vue";
-  import Clothe from "@/components/Shoe/Clothe_All.vue"
-  
-  export default {
-    components: {
-      Header,
-      Clothe,
-      Footer,
-    },
-    
-  };
-  </script>
-  
+  </LayoutView>
+</template>
+
+<script>
+import Clothe from "@/components/Shoe/Clothe_All.vue";
+import LayoutView from "@/layout/LayoutView.vue";
+import axios from "axios";
+
+export default {
+  components: {
+    LayoutView,
+    Clothe,
+  },
+};
+</script>

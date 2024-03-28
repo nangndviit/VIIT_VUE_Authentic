@@ -1,6 +1,5 @@
 <template>
-  <main>
-    <Header />
+   <LayoutView>
     <div class="container">
       <div class="thanhngang"></div>
 
@@ -12,25 +11,22 @@
         <Detailtion :product="product" />
       </div>
     </div>
-    <Footer />
-  </main>
+   </LayoutView>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Product from "@/components/Main/Product.vue";
+import LayoutView from "@/layout/LayoutView.vue";
 import Detail from "@/components/Details/Product_Describe.vue";
 import Detailtion from "@/components/Details/Detailtion.vue";
-import Footer from "@/components/Footer.vue";
+import Product from "@/components/Main/Product.vue";
 import axios from "axios";
 
 export default {
   components: {
-    Header,
+    Product,
+    LayoutView,
     Detail,
     Detailtion,
-    Product,
-    Footer,
   },
   data() {
     return {

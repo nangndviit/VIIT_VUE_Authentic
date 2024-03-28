@@ -1,25 +1,21 @@
 <template>
-    <main>
-        <Header />
+    <LayoutView>
         <div class="container">
             <div class="thanhngang"></div>
             <Search />
         </div>
-        <Footer />
-    </main>
+    </LayoutView>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
+import LayoutView from "@/layout/LayoutView.vue";
 import Search from "@/components/Search/Search.vue";
-import Footer from "@/components/Footer.vue";
 import axios from "axios";
 
 export default {
     components: {
-        Header,
+        LayoutView,
         Search,
-        Footer,
     },
 };
 </script>

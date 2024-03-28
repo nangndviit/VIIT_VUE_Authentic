@@ -1,8 +1,10 @@
 <template>
+  <router-link class="router_Click" :to="'/products/kich-thuoc-san-pham/' + size.id">
   <li class="li_fillter_by woocommerce-widget-layered-nav-list__item wc-layered-nav-term">
     <a class="a_fillter_by" rel="nofollow" href="#">{{ size.size_name }}</a>
     <span class="count">({{ size?.products?.length }})</span>
   </li>
+</router-link>
 </template>
 
 <script>

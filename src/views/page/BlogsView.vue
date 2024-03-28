@@ -1,6 +1,5 @@
 <template>
-  <main>
-    <Header />
+  <LayoutView>
     <div class="container">
       <div class="thanhngang"></div>
       <div class="blogs_news">
@@ -10,27 +9,24 @@
         <NewNumber />
       </div>
     </div>
-    <Footer />
-  </main>
+  </LayoutView>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
+import LayoutView from "@/layout/LayoutView.vue";
 import NewNumber from "@/components/Blogs/NewNumber.vue";
 import NewAll from "@/components/Blogs/NewAll.vue";
 import NewCate from "@/components/Blogs/NewCate.vue";
 import NewIma from "@/components/Blogs/NewIma.vue";
-import Footer from "@/components/Footer.vue";
 import axios from "axios";
 
 export default {
   components: {
-    Header,
+    LayoutView,
     NewIma,
     NewCate,
     NewAll,
     NewNumber,
-    Footer,
   },
 };
 </script>
